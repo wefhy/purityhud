@@ -89,3 +89,8 @@ jar {
 		rename { "${it}_${base.archivesName}"}
 	}
 }
+
+tasks.withType(AbstractArchiveTask) {
+	preserveFileTimestamps = false
+	reproducibleFileOrder = true
+}
