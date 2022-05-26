@@ -7,6 +7,8 @@ See original project at: https://github.com/maruohon/minihud
 Mini HUD is a tiny client-side mod for Minecraft. that adds the coordinates, looking angle and current speed to the screen.
 For more information and the downloads (compiled builds), see http://minecraft.curseforge.com/projects/minihud
 
+[DOWNLOAD LATEST VERSION HERE](https://github.com/wefhy/purityhud/releases)
+
 Compiling
 =========
 * Clone the repository
