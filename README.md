@@ -9,6 +9,10 @@ For more information and the downloads (compiled builds), see http://minecraft.c
 
 [DOWNLOAD LATEST VERSION HERE](https://github.com/wefhy/purityhud/releases)
 
+Verification
+=========
+As of current version, PurityHud builds are repeatable. It means that jar file compiled from version 1.18.2 (commt `06fbd5`) sholud have md5 sum of `a7c37ef0b96dad6fd1effc3ad2e519ac`
+
 Compiling
 =========
 * Clone the repository
