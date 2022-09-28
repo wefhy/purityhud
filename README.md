@@ -11,7 +11,9 @@ For more information and the downloads (compiled builds), see http://minecraft.c
 
 Verification
 =========
-As of current version, PurityHud builds are repeatable. It means that jar file compiled from version 1.18.2 (commt `06fbd5`) sholud have md5 sum of `a7c37ef0b96dad6fd1effc3ad2e519ac`
+As of current version, PurityHud builds are repeatable. It means that:
+ - jar file compiled from version 1.18.2 (commt `06fbd5`) sholud have md5 sum of `a7c37ef0b96dad6fd1effc3ad2e519ac`
+ - jar file compiled from version 1.19.x (commt `869fde`) sholud have md5 sum of `fc98850102f8191680822b13de674632`
 
 Compiling
 =========
