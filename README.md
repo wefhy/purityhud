@@ -18,6 +18,7 @@ As of current version, PurityHud builds are repeatable. It means that:
 Compiling
 =========
 * Clone the repository
+* Add `org.gradle.jvmargs=-Xmx4096m` to your system-level `gradle-wrapper.properties` (not sure why it needs to be in system level to work)
 * Open a command prompt/terminal to the repository directory
 * run 'gradlew build' (or try '.\gradlew build' if this fails with Powershell)
 * The built jar file will be in build/libs/
