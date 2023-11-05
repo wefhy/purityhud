@@ -10,6 +10,7 @@ For more information and the downloads (compiled builds), see http://minecraft.c
 [![DOWNLOAD LATEST VERSION HERE](https://img.shields.io/github/downloads/wefhy/purityhud/total?style=for-the-badge&label=DOWNLOAD%20LATEST%20VERSION%20HERE&logo=github)](https://github.com/wefhy/purityhud/releases)
 
 ### Stats (versions)
+[![1.20.2](https://img.shields.io/github/downloads/wefhy/purityhud/purityhud-1.20.2/total?label=1.20.2&style=flat-square)](https://github.com/wefhy/purityhud/releases/tag/purityhud-1.20.2)
 [![1.20.1](https://img.shields.io/github/downloads/wefhy/purityhud/purityhud-1.20.1/total?label=1.20.1&style=flat-square)](https://github.com/wefhy/purityhud/releases/tag/purityhud-1.20.1)
 [![1.19.4](https://img.shields.io/github/downloads/wefhy/purityhud/purityhud-1.19.4/total?label=1.19.4&style=flat-square)](https://github.com/wefhy/purityhud/releases/tag/purityhud-1.19.4)
 [![1.19.3](https://img.shields.io/github/downloads/wefhy/purityhud/purityhud-1.19.3/total?label=1.19.3&style=flat-square)](https://github.com/wefhy/purityhud/releases/tag/purityhud-1.19.3)
