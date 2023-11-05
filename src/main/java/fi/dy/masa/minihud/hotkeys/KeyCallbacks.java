@@ -42,7 +42,7 @@ public class KeyCallbacks
         Configs.Colors.CONDUIT_RANGE_OVERLAY_COLOR.setValueChangeCallback(cfg -> OverlayRendererBeaconRange.INSTANCE.setNeedsUpdate());
 
         Configs.Generic.LIGHT_LEVEL_RANGE.setValueChangeCallback((config) -> OverlayRendererLightLevel.setNeedsUpdate());
-        Configs.Generic.LIGHT_LEVEL_RENDER_THROUGH.setValueChangeCallback((config) -> OverlayRendererLightLevel.INSTANCE.setRenderThrough(config.getBooleanValue()));
+//        Configs.Generic.LIGHT_LEVEL_RENDER_THROUGH.setValueChangeCallback((config) -> OverlayRendererLightLevel.INSTANCE.setRenderThrough(config.getBooleanValue()));
         Configs.Generic.STRUCTURES_RENDER_THROUGH.setValueChangeCallback((config) -> OverlayRendererStructures.INSTANCE.setRenderThrough(config.getBooleanValue()));
 
         Configs.Generic.SPAWN_PLAYER_OUTER_OVERLAY_ENABLED.setValueChangeCallback((config) -> OverlayRendererSpawnChunks.setNeedsUpdate());
