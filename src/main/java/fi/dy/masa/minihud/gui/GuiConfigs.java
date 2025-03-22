@@ -32,7 +32,7 @@ public class GuiConfigs extends GuiConfigsBase
 
     public GuiConfigs()
     {
-        super(10, 50, Reference.MOD_ID, null, "minihud.gui.title.configs", String.format("%s", Reference.MOD_VERSION));
+        super(10, 50, Reference.MOD_ID, null, "purityhud.gui.title.configs", String.format("%s", Reference.MOD_VERSION));
     }
 
     @Override
@@ -200,12 +200,12 @@ public class GuiConfigs extends GuiConfigsBase
 
     public enum ConfigGuiTab
     {
-        GENERIC             ("minihud.gui.button.config_gui.generic"),
-        COLORS              ("minihud.gui.button.config_gui.colors"),
-        INFO_LINES          ("minihud.gui.button.config_gui.info_lines"),
-        STRUCTURES          ("minihud.gui.button.config_gui.structures"),
-        RENDERERS           ("minihud.gui.button.config_gui.renderers"),
-        SHAPES              ("minihud.gui.button.config_gui.shapes");
+        GENERIC             ("purityhud.gui.button.config_gui.generic"),
+        COLORS              ("purityhud.gui.button.config_gui.colors"),
+        INFO_LINES          ("purityhud.gui.button.config_gui.info_lines"),
+        STRUCTURES          ("purityhud.gui.button.config_gui.structures"),
+        RENDERERS           ("purityhud.gui.button.config_gui.renderers"),
+        SHAPES              ("purityhud.gui.button.config_gui.shapes");
 
         private final String translationKey;
 
