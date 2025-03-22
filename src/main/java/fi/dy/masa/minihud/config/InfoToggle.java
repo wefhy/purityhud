@@ -84,7 +84,7 @@ public enum InfoToggle implements IConfigInteger, IHotkeyTogglable
 
     // Entity
     ENTITY_REG_NAME         ("infoEntityRegistryName",      false, ""),
-    LOOKING_AT_ENTITY       ("infoLookingAtEntity",         false, ""),
+//    LOOKING_AT_ENTITY       ("infoLookingAtEntity",         false, ""),
     LOOKING_AT_EFFECTS      ("infoLookingAtEffects",        false, ""),
     LOOKING_AT_PLAYER_EXP   ("infoLookingAtPlayerExp",      false, ""),
     ZOMBIE_CONVERSION       ("infoZombieConversion",        false, ""),
@@ -92,7 +92,7 @@ public enum InfoToggle implements IConfigInteger, IHotkeyTogglable
     HORSE_JUMP              ("infoHorseJump",               false, ""),
     PANDA_GENE              ("infoPandaGene",               false, ""),
     DOLPHIN_TREASURE        ("infoDolphinTreasure",         false, ""),
-    ENTITY_VARIANT          ("infoEntityVariant",           false, ""),
+//    ENTITY_VARIANT          ("infoEntityVariant",           false, ""),
     ;
 
     public static final ImmutableList<InfoToggle> VALUES = ImmutableList.copyOf(values());
