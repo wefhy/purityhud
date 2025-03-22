@@ -447,7 +447,7 @@ public class RenderHandler implements IRenderer
 
         if (type == InfoToggle.FPS)
         {
-            this.addLineI18n("minihud.info_line.fps", mc.getCurrentFps());
+            this.addLineI18n("purityhud.info_line.fps", mc.getCurrentFps());
         }
         else if (type == InfoToggle.MEMORY_USAGE)
         {
@@ -456,7 +456,7 @@ public class RenderHandler implements IRenderer
             long memFree = Runtime.getRuntime().freeMemory();
             long memUsed = memTotal - memFree;
 
-            this.addLineI18n("minihud.info_line.memory_usage",
+            this.addLineI18n("purityhud.info_line.memory_usage",
                              memUsed * 100L / memMax,
                              MiscUtils.bytesToMb(memUsed),
                              MiscUtils.bytesToMb(memMax),
@@ -477,14 +477,14 @@ public class RenderHandler implements IRenderer
             }
             catch (Exception e)
             {
-                this.addLineI18n("minihud.info_line.time.exception");
+                this.addLineI18n("purityhud.info_line.time.exception");
             }
         }
         else if (type == InfoToggle.TIME_WORLD)
         {
             long current = world.getTimeOfDay();
             long total = world.getTime();
-            this.addLineI18n("minihud.info_line.time_world", current, total);
+            this.addLineI18n("purityhud.info_line.time_world", current, total);
         }
         else if (type == InfoToggle.TIME_WORLD_FORMATTED)
         {
@@ -502,11 +502,11 @@ public class RenderHandler implements IRenderer
                 String moon;
                 if (moonNumber > 7)
                 {
-                    moon = StringUtils.translate("minihud.info_line.invalid_value");
+                    moon = StringUtils.translate("purityhud.info_line.invalid_value");
                 }
                 else
                 {
-                    moon = StringUtils.translate("minihud.info_line.time_world_formatted.moon_" + moonNumber);
+                    moon = StringUtils.translate("purityhud.info_line.time_world_formatted.moon_" + moonNumber);
                 }
 
                 String str = Configs.Generic.DATE_FORMAT_MINECRAFT.getStringValue();
@@ -521,20 +521,20 @@ public class RenderHandler implements IRenderer
             }
             catch (Exception e)
             {
-                this.addLineI18n("minihud.info_line.time.exception");
+                this.addLineI18n("purityhud.info_line.time.exception");
             }
         }
         else if (type == InfoToggle.TIME_DAY_MODULO)
         {
             int mod = Configs.Generic.TIME_DAY_DIVISOR.getIntegerValue();
             long current = world.getTimeOfDay() % mod;
-            this.addLineI18n("minihud.info_line.time_day_modulo", mod, current);
+            this.addLineI18n("purityhud.info_line.time_day_modulo", mod, current);
         }
         else if (type == InfoToggle.TIME_TOTAL_MODULO)
         {
             int mod = Configs.Generic.TIME_TOTAL_DIVISOR.getIntegerValue();
             long current = world.getTime() % mod;
-            this.addLineI18n("minihud.info_line.time_total_modulo", mod, current);
+            this.addLineI18n("purityhud.info_line.time_total_modulo", mod, current);
         }
         else if (type == InfoToggle.SERVER_TPS)
         {
@@ -559,48 +559,48 @@ public class RenderHandler implements IRenderer
                     else if (mspt <= 50) { preMspt = GuiBase.TXT_GOLD; }
                     else                 { preMspt = GuiBase.TXT_RED; }
 
-                    this.addLineI18n("minihud.info_line.server_tps", preTps, tps, rst, preMspt, mspt, rst);
+                    this.addLineI18n("purityhud.info_line.server_tps", preTps, tps, rst, preMspt, mspt, rst);
                 }
                 else
                 {
                     if (mspt <= 51) { preMspt = GuiBase.TXT_GREEN; }
                     else            { preMspt = GuiBase.TXT_RED; }
 
-                    this.addLineI18n("minihud.info_line.server_tps.est", preTps, tps, rst, preMspt, mspt, rst);
+                    this.addLineI18n("purityhud.info_line.server_tps.est", preTps, tps, rst, preMspt, mspt, rst);
                 }
             }
             else
             {
-                this.addLineI18n("minihud.info_line.server_tps.invalid");
+                this.addLineI18n("purityhud.info_line.server_tps.invalid");
             }
         }
         else if (type == InfoToggle.SERVUX)
         {
             if (EntitiesDataManager.getInstance().hasServuxServer())
             {
-                this.addLineI18n("minihud.info_line.servux",
+                this.addLineI18n("purityhud.info_line.servux",
                                  EntitiesDataManager.getInstance().getServuxVersion());
             }
             else if (this.getDataStorage().hasServuxServer())
             {
-                this.addLineI18n("minihud.info_line.servux",
+                this.addLineI18n("purityhud.info_line.servux",
                                  this.getDataStorage().getServuxVersion());
             }
             else if (this.getHudData().hasServuxServer())
             {
-                this.addLineI18n("minihud.info_line.servux",
+                this.addLineI18n("purityhud.info_line.servux",
                                  this.getHudData().getServuxVersion());
             }
             else if (this.getDataStorage().hasIntegratedServer() == false &&
                     !EntitiesDataManager.getInstance().hasServuxServer() &&
                     !this.getHudData().hasServuxServer())
             {
-                this.addLineI18n("minihud.info_line.servux.not_connected");
+                this.addLineI18n("purityhud.info_line.servux.not_connected");
             }
 
             if (EntitiesDataManager.getInstance().hasServuxServer())
             {
-                this.addLineI18n("minihud.info_line.servux.entity_sync",
+                this.addLineI18n("purityhud.info_line.servux.entity_sync",
                                  EntitiesDataManager.getInstance().getBlockEntityCacheCount(),
                                  EntitiesDataManager.getInstance().getPendingBlockEntitiesCount(),
                                  EntitiesDataManager.getInstance().getEntityCacheCount(),
@@ -609,28 +609,28 @@ public class RenderHandler implements IRenderer
             }
             if (this.getDataStorage().hasServuxServer())
             {
-                this.addLineI18n("minihud.info_line.servux.structures",
+                this.addLineI18n("purityhud.info_line.servux.structures",
                                  this.getDataStorage().getStrucutreCount(),
                                  this.getHudData().getSpawnChunkRadius(),
                                  this.getHudData().getWorldSpawn().toShortString(),
-                                 this.getHudData().isWorldSpawnKnown() ? StringUtils.translate("minihud.info_line.slime_chunk.yes") : StringUtils.translate("minihud.info_line.slime_chunk.no")
+                                 this.getHudData().isWorldSpawnKnown() ? StringUtils.translate("purityhud.info_line.slime_chunk.yes") : StringUtils.translate("purityhud.info_line.slime_chunk.no")
                 );
             }
             else if (this.getHudData().hasServuxServer())
             {
-                this.addLineI18n("minihud.info_line.servux.no_structures_hud",
+                this.addLineI18n("purityhud.info_line.servux.no_structures_hud",
                                  this.getHudData().getSpawnChunkRadius(),
                                  this.getHudData().getWorldSpawn().toShortString(),
-                                 this.getHudData().isWorldSpawnKnown() ? StringUtils.translate("minihud.info_line.slime_chunk.yes") : StringUtils.translate("minihud.info_line.slime_chunk.no")
+                                 this.getHudData().isWorldSpawnKnown() ? StringUtils.translate("purityhud.info_line.slime_chunk.yes") : StringUtils.translate("purityhud.info_line.slime_chunk.no")
                 );
             }
             else if (this.getDataStorage().hasIntegratedServer())
             {
-                this.addLineI18n("minihud.info_line.servux.structures_integrated",
+                this.addLineI18n("purityhud.info_line.servux.structures_integrated",
                                  this.getDataStorage().getStrucutreCount(),
                                  this.getHudData().getSpawnChunkRadius(),
                                  this.getHudData().getWorldSpawn().toShortString(),
-                                 this.getHudData().isWorldSpawnKnown() ? StringUtils.translate("minihud.info_line.slime_chunk.yes") : StringUtils.translate("minihud.info_line.slime_chunk.no")
+                                 this.getHudData().isWorldSpawnKnown() ? StringUtils.translate("purityhud.info_line.slime_chunk.yes") : StringUtils.translate("purityhud.info_line.slime_chunk.no")
                 );
             }
         }
@@ -662,15 +662,15 @@ public class RenderHandler implements IRenderer
 
             if (weatherTime < 1)
             {
-                this.addLineI18n("minihud.info_line.weather", StringUtils.translate("minihud.info_line.weather." + weatherType), "");
+                this.addLineI18n("purityhud.info_line.weather", StringUtils.translate("purityhud.info_line.weather." + weatherType), "");
             }
             else
             {
                 // 50 = 1000 (ms/s) / 20 (ticks/s)
-                this.addLineI18n("minihud.info_line.weather",
-                                 StringUtils.translate("minihud.info_line.weather." + weatherType),
+                this.addLineI18n("purityhud.info_line.weather",
+                                 StringUtils.translate("purityhud.info_line.weather." + weatherType),
                                  ", " + MiscUtils.formatDuration(weatherTime * 50L)
-                                 + " " + StringUtils.translate("minihud.info_line.remaining")
+                                 + " " + StringUtils.translate("purityhud.info_line.remaining")
                 );
             }
         }
@@ -694,7 +694,7 @@ public class RenderHandler implements IRenderer
 
             if (info != null)
             {
-                this.addLineI18n("minihud.info_line.ping", info.getLatency());
+                this.addLineI18n("purityhud.info_line.ping", info.getLatency());
             }
         }
         else if (type == InfoToggle.COORDINATES ||
@@ -726,12 +726,12 @@ public class RenderHandler implements IRenderer
                     // Uh oh, someone done goofed their format string... :P
                     catch (Exception e)
                     {
-                        str.append(StringUtils.translate("minihud.info_line.coordinates.exception"));
+                        str.append(StringUtils.translate("purityhud.info_line.coordinates.exception"));
                     }
                 }
                 else
                 {
-                    str.append(StringUtils.translate("minihud.info_line.coordinates.format", x, y, z));
+                    str.append(StringUtils.translate("purityhud.info_line.coordinates.format", x, y, z));
                 }
 
                 pre = " / ";
@@ -749,11 +749,11 @@ public class RenderHandler implements IRenderer
 
                 if (isNether)
                 {
-                    str.append(StringUtils.translate("minihud.info_line.coordinates_scaled.overworld"));
+                    str.append(StringUtils.translate("purityhud.info_line.coordinates_scaled.overworld"));
                 }
                 else
                 {
-                    str.append(StringUtils.translate("minihud.info_line.coordinates_scaled.nether"));
+                    str.append(StringUtils.translate("purityhud.info_line.coordinates_scaled.nether"));
                 }
 
                 if (Configs.Generic.USE_CUSTOMIZED_COORDINATES.getBooleanValue())
@@ -765,12 +765,12 @@ public class RenderHandler implements IRenderer
                     // Uh oh, someone done goofed their format string... :P
                     catch (Exception e)
                     {
-                        str.append(StringUtils.translate("minihud.info_line.coordinates.exception"));
+                        str.append(StringUtils.translate("purityhud.info_line.coordinates.exception"));
                     }
                 }
                 else
                 {
-                    str.append(StringUtils.translate("minihud.info_line.coordinates.format", x, y, z));
+                    str.append(StringUtils.translate("purityhud.info_line.coordinates.format", x, y, z));
                 }
 
                 pre = " / ";
@@ -779,7 +779,7 @@ public class RenderHandler implements IRenderer
             if (InfoToggle.DIMENSION.getBooleanValue())
             {
                 String dimName = world.getRegistryKey().getValue().toString();
-                str.append(pre).append(StringUtils.translate("minihud.info_line.dimension")).append(dimName);
+                str.append(pre).append(StringUtils.translate("purityhud.info_line.dimension")).append(dimName);
             }
 
             this.addLine(str.toString());
@@ -813,7 +813,7 @@ public class RenderHandler implements IRenderer
                 // Uh oh, someone done goofed their format string... :P
                 catch (Exception e)
                 {
-                    str.append(StringUtils.translate("minihud.info_line.block_pos.exception"));
+                    str.append(StringUtils.translate("purityhud.info_line.block_pos.exception"));
                 }
 
                 pre = " / ";
@@ -821,13 +821,13 @@ public class RenderHandler implements IRenderer
 
             if (InfoToggle.CHUNK_POS.getBooleanValue())
             {
-                str.append(pre).append(StringUtils.translate("minihud.info_line.chunk_pos", chunkPos.x, pos.getY() >> 4, chunkPos.z));
+                str.append(pre).append(StringUtils.translate("purityhud.info_line.chunk_pos", chunkPos.x, pos.getY() >> 4, chunkPos.z));
                 pre = " / ";
             }
 
             if (InfoToggle.REGION_FILE.getBooleanValue())
             {
-                str.append(pre).append(StringUtils.translate("minihud.info_line.region_file", pos.getX() >> 9, pos.getZ() >> 9));
+                str.append(pre).append(StringUtils.translate("purityhud.info_line.region_file", pos.getX() >> 9, pos.getZ() >> 9));
             }
 
             this.addLine(str.toString());
@@ -838,42 +838,42 @@ public class RenderHandler implements IRenderer
         }
         else if (type == InfoToggle.BLOCK_IN_CHUNK)
         {
-            this.addLineI18n("minihud.info_line.block_in_chunk",
+            this.addLineI18n("purityhud.info_line.block_in_chunk",
                         pos.getX() & 0xF, pos.getY() & 0xF, pos.getZ() & 0xF,
                         chunkPos.x, pos.getY() >> 4, chunkPos.z);
         }
         else if (type == InfoToggle.BLOCK_BREAK_SPEED)
         {
-            this.addLineI18n("minihud.info_line.block_break_speed", DataStorage.getInstance().getBlockBreakingSpeed());
+            this.addLineI18n("purityhud.info_line.block_break_speed", DataStorage.getInstance().getBlockBreakingSpeed());
         }
         else if (type == InfoToggle.SPRINTING && mc.player.isSprinting())
         {
-            this.addLineI18n("minihud.info_line.sprinting");
+            this.addLineI18n("purityhud.info_line.sprinting");
         }
         else if (type == InfoToggle.DISTANCE)
         {
             Vec3d ref = DataStorage.getInstance().getDistanceReferencePoint();
             double dist = Math.sqrt(ref.squaredDistanceTo(entity.getX(), entity.getY(), entity.getZ()));
-            this.addLineI18n("minihud.info_line.distance",
+            this.addLineI18n("purityhud.info_line.distance",
                     dist, entity.getX() - ref.x, entity.getY() - ref.y, entity.getZ() - ref.z, ref.x, ref.y, ref.z);
         }
         else if (type == InfoToggle.FACING)
         {
             Direction facing = entity.getHorizontalFacing();
-            String facingName = StringUtils.translate("minihud.info_line.facing." + facing.getName() + ".name");
+            String facingName = StringUtils.translate("purityhud.info_line.facing." + facing.getName() + ".name");
             String str;
 
-            if (facingName.contains("minihud.info_line.facing." + facing.getName() + ".name"))
+            if (facingName.contains("purityhud.info_line.facing." + facing.getName() + ".name"))
             {
                 facingName = facing.name();
-                str = StringUtils.translate("minihud.info_line.invalid_value");
+                str = StringUtils.translate("purityhud.info_line.invalid_value");
             }
             else
             {
-                str = StringUtils.translate("minihud.info_line.facing." + facing.getName());
+                str = StringUtils.translate("purityhud.info_line.facing." + facing.getName());
             }
 
-            this.addLineI18n("minihud.info_line.facing", facingName, str);
+            this.addLineI18n("purityhud.info_line.facing", facingName, str);
         }
         else if (type == InfoToggle.LIGHT_LEVEL)
         {
@@ -883,7 +883,7 @@ public class RenderHandler implements IRenderer
             {
                 LightingProvider lightingProvider = world.getChunkManager().getLightingProvider();
 
-                this.addLineI18n("minihud.info_line.light_level", lightingProvider.get(LightType.BLOCK).getLightLevel(pos));
+                this.addLineI18n("purityhud.info_line.light_level", lightingProvider.get(LightType.BLOCK).getLightLevel(pos));
             }
         }
         else if (type == InfoToggle.BEE_COUNT)
@@ -904,16 +904,16 @@ public class RenderHandler implements IRenderer
                 // This probablly means no Server Data, so don't show the flower_pos
                 if (bees.getRight().equals(BlockPos.ORIGIN))
                 {
-                    this.addLineI18n("minihud.info_line.bee_count", bees.getLeft().size());
+                    this.addLineI18n("purityhud.info_line.bee_count", bees.getLeft().size());
                 }
                 else
                 {
-                    this.addLineI18n("minihud.info_line.bee_count.flower_pos", bees.getLeft().size(), bees.getRight().toShortString());
+                    this.addLineI18n("purityhud.info_line.bee_count.flower_pos", bees.getLeft().size(), bees.getRight().toShortString());
                 }
             }
             else if (pair.getLeft() instanceof BeehiveBlockEntity be)
             {
-                this.addLineI18n("minihud.info_line.bee_count", ((BeehiveBlockEntity) be).getBeeCount());
+                this.addLineI18n("purityhud.info_line.bee_count", ((BeehiveBlockEntity) be).getBeeCount());
             }
         }
         else if (type == InfoToggle.COMPARATOR_OUTPUT)
@@ -933,14 +933,14 @@ public class RenderHandler implements IRenderer
 
                 if (output > 0)
                 {
-                    this.addLineI18n("minihud.info_line.comparator_output_signal", output);
+                    this.addLineI18n("purityhud.info_line.comparator_output_signal", output);
                 }
             }
             else if (pair.getLeft() instanceof ComparatorBlockEntity be)
             {
                 if (be.getOutputSignal() > 0)
                 {
-                    this.addLineI18n("minihud.info_line.comparator_output_signal", be.getOutputSignal());
+                    this.addLineI18n("purityhud.info_line.comparator_output_signal", be.getOutputSignal());
                 }
             }
         }
@@ -950,7 +950,7 @@ public class RenderHandler implements IRenderer
 
             if (state != null && state.getBlock() instanceof BeehiveBlock)
             {
-                this.addLineI18n("minihud.info_line.honey_level", BeehiveBlockEntity.getHoneyLevel(state));
+                this.addLineI18n("purityhud.info_line.honey_level", BeehiveBlockEntity.getHoneyLevel(state));
             }
         }
         else if (type == InfoToggle.FURNACE_XP)
@@ -977,7 +977,7 @@ public class RenderHandler implements IRenderer
 
                         if (exp > 0)
                         {
-                            this.addLineI18n("minihud.info_line.furnace_xp", exp);
+                            this.addLineI18n("purityhud.info_line.furnace_xp", exp);
                         }
                     }
                     else if (this.getHudData().hasServuxServer() && this.getHudData().hasRecipes())
@@ -986,7 +986,7 @@ public class RenderHandler implements IRenderer
 
                         if (exp > 0)
                         {
-                            this.addLineI18n("minihud.info_line.furnace_xp", exp);
+                            this.addLineI18n("purityhud.info_line.furnace_xp", exp);
                         }
                     }
                 }
@@ -999,7 +999,7 @@ public class RenderHandler implements IRenderer
 
                     if (exp > 0)
                     {
-                        this.addLineI18n("minihud.info_line.furnace_xp", exp);
+                        this.addLineI18n("purityhud.info_line.furnace_xp", exp);
                     }
                 }
                 else if (this.getHudData().hasServuxServer() && this.getHudData().hasRecipes())
@@ -1008,7 +1008,7 @@ public class RenderHandler implements IRenderer
 
                     if (exp > 0)
                     {
-                        this.addLineI18n("minihud.info_line.furnace_xp", exp);
+                        this.addLineI18n("purityhud.info_line.furnace_xp", exp);
                     }
                 }
             }
@@ -1074,7 +1074,7 @@ public class RenderHandler implements IRenderer
             if (InfoToggle.HORSE_SPEED.getBooleanValue() && speed > 0d)
             {
                 speed *= 42.1629629629629f;
-                this.addLineI18n("minihud.info_line.horse_speed", AnimalType, speed);
+                this.addLineI18n("purityhud.info_line.horse_speed", AnimalType, speed);
                 this.addedTypes.add(InfoToggle.HORSE_SPEED);
             }
             if (InfoToggle.HORSE_JUMP.getBooleanValue() && jump > 0d)
@@ -1084,7 +1084,7 @@ public class RenderHandler implements IRenderer
                                 3.689713992d * jump * jump +
                                 2.128599134d * jump +
                                 -0.343930367;
-                this.addLineI18n("minihud.info_line.horse_jump", AnimalType, calculatedJumpHeight);
+                this.addLineI18n("purityhud.info_line.horse_jump", AnimalType, calculatedJumpHeight);
                 this.addedTypes.add(InfoToggle.HORSE_JUMP);
             }
         }
@@ -1105,13 +1105,13 @@ public class RenderHandler implements IRenderer
 
             if (InfoToggle.ROTATION_YAW.getBooleanValue())
             {
-                str.append(StringUtils.translate("minihud.info_line.rotation_yaw", MathHelper.wrapDegrees(entity.getYaw())));
+                str.append(StringUtils.translate("purityhud.info_line.rotation_yaw", MathHelper.wrapDegrees(entity.getYaw())));
                 pre = " / ";
             }
 
             if (InfoToggle.ROTATION_PITCH.getBooleanValue())
             {
-                str.append(pre).append(StringUtils.translate("minihud.info_line.rotation_pitch", MathHelper.wrapDegrees(entity.getPitch())));
+                str.append(pre).append(StringUtils.translate("purityhud.info_line.rotation_pitch", MathHelper.wrapDegrees(entity.getPitch())));
                 pre = " / ";
             }
 
@@ -1121,7 +1121,7 @@ public class RenderHandler implements IRenderer
                 double dy = entity.getY() - entity.lastRenderY;
                 double dz = entity.getZ() - entity.lastRenderZ;
                 double dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-                str.append(pre).append(StringUtils.translate("minihud.info_line.speed", dist * 20));
+                str.append(pre).append(StringUtils.translate("purityhud.info_line.speed", dist * 20));
             }
 
             this.addLine(str.toString());
@@ -1135,18 +1135,18 @@ public class RenderHandler implements IRenderer
             double dx = entity.getX() - entity.lastRenderX;
             double dy = entity.getY() - entity.lastRenderY;
             double dz = entity.getZ() - entity.lastRenderZ;
-            this.addLineI18n("minihud.info_line.speed_hv", Math.sqrt(dx * dx + dz * dz) * 20, dy * 20);
+            this.addLineI18n("purityhud.info_line.speed_hv", Math.sqrt(dx * dx + dz * dz) * 20, dy * 20);
         }
         else if (type == InfoToggle.SPEED_AXIS)
         {
             double dx = entity.getX() - entity.lastRenderX;
             double dy = entity.getY() - entity.lastRenderY;
             double dz = entity.getZ() - entity.lastRenderZ;
-            this.addLineI18n("minihud.info_line.speed_axis", dx * 20, dy * 20, dz * 20);
+            this.addLineI18n("purityhud.info_line.speed_axis", dx * 20, dy * 20, dz * 20);
         }
         else if (type == InfoToggle.CHUNK_SECTIONS)
         {
-            this.addLineI18n("minihud.info_line.chunk_sections", ((IMixinWorldRenderer) mc.worldRenderer).minihud_getRenderedChunksInvoker());
+            this.addLineI18n("purityhud.info_line.chunk_sections", ((IMixinWorldRenderer) mc.worldRenderer).minihud_getRenderedChunksInvoker());
         }
         else if (type == InfoToggle.CHUNK_SECTIONS_FULL)
         {
@@ -1165,7 +1165,7 @@ public class RenderHandler implements IRenderer
             {
                 int chunksServer = worldServer.getChunkManager().getLoadedChunkCount();
                 int chunksServerTot = ((ServerChunkManager) worldServer.getChunkManager()).getTotalChunksLoadedCount();
-                this.addLineI18n("minihud.info_line.loaded_chunks_count.server", chunksServer, chunksServerTot, chunksClient);
+                this.addLineI18n("purityhud.info_line.loaded_chunks_count.server", chunksServer, chunksServerTot, chunksClient);
             }
             else
             {
@@ -1191,32 +1191,32 @@ public class RenderHandler implements IRenderer
 
                     if (genes.getLeft() != null && genes.getRight() != null)
                     {
-                        this.addLineI18n("minihud.info_line.panda_gene.main_gene",
-                                         StringUtils.translate("minihud.info_line.panda_gene.gene." + genes.getLeft().asString()),
-                                         genes.getLeft().isRecessive() ? StringUtils.translate("minihud.info_line.panda_gene.recessive_gene") : StringUtils.translate("minihud.info_line.panda_gene.dominant_gene")
+                        this.addLineI18n("purityhud.info_line.panda_gene.main_gene",
+                                         StringUtils.translate("purityhud.info_line.panda_gene.gene." + genes.getLeft().asString()),
+                                         genes.getLeft().isRecessive() ? StringUtils.translate("purityhud.info_line.panda_gene.recessive_gene") : StringUtils.translate("purityhud.info_line.panda_gene.dominant_gene")
                         );
-                        this.addLineI18n("minihud.info_line.panda_gene.hidden_gene",
-                                         StringUtils.translate("minihud.info_line.panda_gene.gene." + genes.getRight().asString()),
-                                         genes.getRight().isRecessive() ? StringUtils.translate("minihud.info_line.panda_gene.recessive_gene") : StringUtils.translate("minihud.info_line.panda_gene.dominant_gene")
+                        this.addLineI18n("purityhud.info_line.panda_gene.hidden_gene",
+                                         StringUtils.translate("purityhud.info_line.panda_gene.gene." + genes.getRight().asString()),
+                                         genes.getRight().isRecessive() ? StringUtils.translate("purityhud.info_line.panda_gene.recessive_gene") : StringUtils.translate("purityhud.info_line.panda_gene.dominant_gene")
                         );
                     }
                 }
             }
             else if (pair.getLeft() instanceof PandaEntity panda)
             {
-                this.addLineI18n("minihud.info_line.panda_gene.main_gene",
-                        StringUtils.translate("minihud.info_line.panda_gene.gene." + panda.getMainGene().asString()),
-                        panda.getMainGene().isRecessive() ? StringUtils.translate("minihud.info_line.panda_gene.recessive_gene") : StringUtils.translate("minihud.info_line.panda_gene.dominant_gene")
+                this.addLineI18n("purityhud.info_line.panda_gene.main_gene",
+                        StringUtils.translate("purityhud.info_line.panda_gene.gene." + panda.getMainGene().asString()),
+                        panda.getMainGene().isRecessive() ? StringUtils.translate("purityhud.info_line.panda_gene.recessive_gene") : StringUtils.translate("purityhud.info_line.panda_gene.dominant_gene")
                 );
-                this.addLineI18n("minihud.info_line.panda_gene.hidden_gene",
-                        StringUtils.translate("minihud.info_line.panda_gene.gene." + panda.getHiddenGene().asString()),
-                        panda.getHiddenGene().isRecessive() ? StringUtils.translate("minihud.info_line.panda_gene.recessive_gene") : StringUtils.translate("minihud.info_line.panda_gene.dominant_gene")
+                this.addLineI18n("purityhud.info_line.panda_gene.hidden_gene",
+                        StringUtils.translate("purityhud.info_line.panda_gene.gene." + panda.getHiddenGene().asString()),
+                        panda.getHiddenGene().isRecessive() ? StringUtils.translate("purityhud.info_line.panda_gene.recessive_gene") : StringUtils.translate("purityhud.info_line.panda_gene.dominant_gene")
                 );
             }
         }
         else if (type == InfoToggle.PARTICLE_COUNT)
         {
-            this.addLineI18n("minihud.info_line.particle_count", mc.particleManager.getDebugString());
+            this.addLineI18n("purityhud.info_line.particle_count", mc.particleManager.getDebugString());
         }
         else if (type == InfoToggle.DIFFICULTY)
         {
@@ -1231,7 +1231,7 @@ public class RenderHandler implements IRenderer
             }
 
             LocalDifficulty diff = new LocalDifficulty(mc.world.getDifficulty(), mc.world.getTimeOfDay(), chunkInhabitedTime, moonPhaseFactor);
-            this.addLineI18n("minihud.info_line.difficulty",
+            this.addLineI18n("purityhud.info_line.difficulty",
                     diff.getLocalDifficulty(), diff.getClampedLocalDifficulty(), mc.world.getTimeOfDay() / 24000L);
         }
         else if (type == InfoToggle.BIOME)
@@ -1249,7 +1249,7 @@ public class RenderHandler implements IRenderer
                     biomeName = StringUtils.prettifyRawTranslationPath(id.getPath());
                 }
 
-                this.addLineI18n("minihud.info_line.biome", biomeName);
+                this.addLineI18n("purityhud.info_line.biome", biomeName);
             }
         }
         else if (type == InfoToggle.BIOME_REG_NAME)
@@ -1261,7 +1261,7 @@ public class RenderHandler implements IRenderer
                 Biome biome = mc.world.getBiome(pos).value();
                 Identifier rl = mc.world.getRegistryManager().getOrThrow(RegistryKeys.BIOME).getId(biome);
                 String name = rl != null ? rl.toString() : "?";
-                this.addLineI18n("minihud.info_line.biome_reg_name", name);
+                this.addLineI18n("purityhud.info_line.biome_reg_name", name);
             }
         }
         else if (type == InfoToggle.ENTITIES)
@@ -1281,7 +1281,7 @@ public class RenderHandler implements IRenderer
         {
             // TODO 1.17
             //this.addLine(String.format("Client world TE - L: %d, T: %d", mc.world.blockEntities.size(), mc.world.tickingBlockEntities.size()));
-            this.addLineI18n("minihud.info_line.tile_entities");
+            this.addLineI18n("purityhud.info_line.tile_entities");
         }
         else if (type == InfoToggle.ENTITIES_CLIENT_WORLD)
         {
@@ -1295,12 +1295,12 @@ public class RenderHandler implements IRenderer
                 {
                     IServerEntityManager manager = (IServerEntityManager) ((IMixinServerWorld) serverWorld).minihud_getEntityManager();
                     int indexSize = manager.minihud$getIndexSize();
-                    this.addLineI18n("minihud.info_line.entities_client_world.server", countClient, indexSize);
+                    this.addLineI18n("purityhud.info_line.entities_client_world.server", countClient, indexSize);
                     return;
                 }
             }
 
-            this.addLineI18n("minihud.info_line.entities_client_world", countClient);
+            this.addLineI18n("purityhud.info_line.entities_client_world", countClient);
         }
         else if (type == InfoToggle.SLIME_CHUNK)
         {
@@ -1317,19 +1317,19 @@ public class RenderHandler implements IRenderer
 
                 if (MiscUtils.canSlimeSpawnAt(pos.getX(), pos.getZ(), seed))
                 {
-                    result = StringUtils.translate("minihud.info_line.slime_chunk.yes");
+                    result = StringUtils.translate("purityhud.info_line.slime_chunk.yes");
                 }
                 else
                 {
-                    result = StringUtils.translate("minihud.info_line.slime_chunk.no");
+                    result = StringUtils.translate("purityhud.info_line.slime_chunk.no");
                 }
             }
             else
             {
-                result = StringUtils.translate("minihud.info_line.slime_chunk.no_seed");
+                result = StringUtils.translate("purityhud.info_line.slime_chunk.no_seed");
             }
 
-            this.addLineI18n("minihud.info_line.slime_chunk", result);
+            this.addLineI18n("purityhud.info_line.slime_chunk", result);
         }
         else if (type == InfoToggle.LOOKING_AT_EFFECTS)
         {
@@ -1358,12 +1358,12 @@ public class RenderHandler implements IRenderer
 
                         if (effect.isInfinite() || effect.getDuration() > 0)
                         {
-                            this.addLineI18n("minihud.info_line.looking_at_effects",
+                            this.addLineI18n("purityhud.info_line.looking_at_effects",
                                              effectType.value().getName().getString(),
-                                             effect.getAmplifier() > 0 ? StringUtils.translate("minihud.info_line.looking_at_effects.amplifier", effect.getAmplifier() + 1) : "",
-                                             effect.isInfinite() ? StringUtils.translate("minihud.info_line.looking_at_effects.infinite") :
+                                             effect.getAmplifier() > 0 ? StringUtils.translate("purityhud.info_line.looking_at_effects.amplifier", effect.getAmplifier() + 1) : "",
+                                             effect.isInfinite() ? StringUtils.translate("purityhud.info_line.looking_at_effects.infinite") :
                                              MiscUtils.formatDuration((effect.getDuration() / 20) * 1000L),
-                                             StringUtils.translate("minihud.info_line.remaining")
+                                             StringUtils.translate("purityhud.info_line.remaining")
                             );
                         }
                     }
@@ -1379,12 +1379,12 @@ public class RenderHandler implements IRenderer
 
                         if (effect.isInfinite() || effect.getDuration() > 0)
                         {
-                            this.addLineI18n("minihud.info_line.looking_at_effects",
+                            this.addLineI18n("purityhud.info_line.looking_at_effects",
                                     effect.getEffectType().value().getName().getString(),
-                                    effect.getAmplifier() > 0 ? StringUtils.translate("minihud.info_line.looking_at_effects.amplifier", effect.getAmplifier() + 1) : "",
-                                    effect.isInfinite() ? StringUtils.translate("minihud.info_line.looking_at_effects.infinite") :
+                                    effect.getAmplifier() > 0 ? StringUtils.translate("purityhud.info_line.looking_at_effects.amplifier", effect.getAmplifier() + 1) : "",
+                                    effect.isInfinite() ? StringUtils.translate("purityhud.info_line.looking_at_effects.infinite") :
                                     MiscUtils.formatDuration((effect.getDuration() / 20) * 1000L),
-                                    StringUtils.translate("minihud.info_line.remaining")
+                                    StringUtils.translate("purityhud.info_line.remaining")
                             );
                         }
                     }
@@ -1444,7 +1444,7 @@ public class RenderHandler implements IRenderer
                 }
                 if (conversionTimer > 0)
                 {
-                    this.addLineI18n("minihud.info_line.zombie_conversion", zombieType, MiscUtils.formatDuration((conversionTimer / 20) * 1000L));
+                    this.addLineI18n("purityhud.info_line.zombie_conversion", zombieType, MiscUtils.formatDuration((conversionTimer / 20) * 1000L));
                 }
             }
         }
@@ -1476,7 +1476,7 @@ public class RenderHandler implements IRenderer
                             // Submerged
                             if (hasTreasure)
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure", treasure.toShortString());
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure", treasure.toShortString());
                             }
                         }
                         else if (dryTime > 0)
@@ -1484,11 +1484,11 @@ public class RenderHandler implements IRenderer
                             // Countdown until dry
                             if (hasTreasure)
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure.drying", treasure.toShortString(), MiscUtils.formatDuration((dryTime / 20) * 1000L));
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure.drying", treasure.toShortString(), MiscUtils.formatDuration((dryTime / 20) * 1000L));
                             }
                             else
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure.drying_no_treasure", MiscUtils.formatDuration((dryTime / 20) * 1000L));
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure.drying_no_treasure", MiscUtils.formatDuration((dryTime / 20) * 1000L));
                             }
                         }
                         else if (dryTime < 0)
@@ -1496,11 +1496,11 @@ public class RenderHandler implements IRenderer
                             // Drying Out and taking Damage
                             if (hasTreasure)
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure.dying", treasure.toShortString(), MiscUtils.formatDuration(((dryTime * (-1)) / 20) * 1000L));
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure.dying", treasure.toShortString(), MiscUtils.formatDuration(((dryTime * (-1)) / 20) * 1000L));
                             }
                             else
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure.dying_no_treasure", MiscUtils.formatDuration(((dryTime * (-1)) / 20) * 1000L));
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure.dying_no_treasure", MiscUtils.formatDuration(((dryTime * (-1)) / 20) * 1000L));
                             }
                         }
                     }
@@ -1518,7 +1518,7 @@ public class RenderHandler implements IRenderer
                             // Submerged
                             if (hasTreasure)
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure", treasure.toShortString());
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure", treasure.toShortString());
                             }
                         }
                         else if (dryTime > 0)
@@ -1526,11 +1526,11 @@ public class RenderHandler implements IRenderer
                             // Countdown until dry
                             if (hasTreasure)
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure.drying", treasure.toShortString(), MiscUtils.formatDuration((dryTime / 20) * 1000L));
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure.drying", treasure.toShortString(), MiscUtils.formatDuration((dryTime / 20) * 1000L));
                             }
                             else
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure.drying_no_treasure", MiscUtils.formatDuration((dryTime / 20) * 1000L));
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure.drying_no_treasure", MiscUtils.formatDuration((dryTime / 20) * 1000L));
                             }
                         }
                         else if (dryTime < 0)
@@ -1538,11 +1538,11 @@ public class RenderHandler implements IRenderer
                             // Drying Out and taking Damage
                             if (hasTreasure)
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure.dying", treasure.toShortString(), MiscUtils.formatDuration(((dryTime * (-1)) / 20) * 1000L));
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure.dying", treasure.toShortString(), MiscUtils.formatDuration(((dryTime * (-1)) / 20) * 1000L));
                             }
                             else
                             {
-                                this.addLineI18n("minihud.info_line.dolphin_treasure.dying_no_treasure", MiscUtils.formatDuration(((dryTime * (-1)) / 20) * 1000L));
+                                this.addLineI18n("purityhud.info_line.dolphin_treasure.dying_no_treasure", MiscUtils.formatDuration(((dryTime * (-1)) / 20) * 1000L));
                             }
                         }
                     }
@@ -1563,7 +1563,7 @@ public class RenderHandler implements IRenderer
 
                 if (regName != null)
                 {
-                    this.addLineI18n("minihud.info_line.entity_reg_name", regName);
+                    this.addLineI18n("purityhud.info_line.entity_reg_name", regName);
                 }
             }
         }
@@ -1571,7 +1571,7 @@ public class RenderHandler implements IRenderer
         {
             if (mc.player != null)
             {
-                this.addLineI18n("minihud.info_line.player_experience", mc.player.experienceLevel, 100 * mc.player.experienceProgress, mc.player.totalExperience);
+                this.addLineI18n("purityhud.info_line.player_experience", mc.player.experienceLevel, 100 * mc.player.experienceProgress, mc.player.totalExperience);
             }
         }
         else if (type == InfoToggle.LOOKING_AT_PLAYER_EXP)
@@ -1595,13 +1595,13 @@ public class RenderHandler implements IRenderer
 
                         if (triple.getLeft() > 0)
                         {
-                            this.addLineI18n("minihud.info_line.looking_at_player_exp", triple.getLeft(), triple.getRight(), 100 * triple.getMiddle());
+                            this.addLineI18n("purityhud.info_line.looking_at_player_exp", triple.getLeft(), triple.getRight(), 100 * triple.getMiddle());
                         }
                     }
                 }
                 else if (pair.getLeft() instanceof ServerPlayerEntity player)
                 {
-                    this.addLineI18n("minihud.info_line.looking_at_player_exp", player.experienceLevel, 100 * player.experienceProgress, player.totalExperience);
+                    this.addLineI18n("purityhud.info_line.looking_at_player_exp", player.experienceLevel, 100 * player.experienceProgress, player.totalExperience);
                 }
             }
         }
@@ -1623,13 +1623,13 @@ public class RenderHandler implements IRenderer
 
                 if (InfoToggle.LOOKING_AT_BLOCK.getBooleanValue())
                 {
-                    str.append(StringUtils.translate("minihud.info_line.looking_at_block", lookPos.getX(), lookPos.getY(), lookPos.getZ()));
+                    str.append(StringUtils.translate("purityhud.info_line.looking_at_block", lookPos.getX(), lookPos.getY(), lookPos.getZ()));
                     pre = " // ";
                 }
 
                 if (InfoToggle.LOOKING_AT_BLOCK_CHUNK.getBooleanValue())
                 {
-                    str.append(pre).append(StringUtils.translate("minihud.info_line.looking_at_block_chunk",
+                    str.append(pre).append(StringUtils.translate("purityhud.info_line.looking_at_block_chunk",
                             lookPos.getX() & 0xF, lookPos.getY() & 0xF, lookPos.getZ() & 0xF,
                             lookPos.getX() >> 4, lookPos.getY() >> 4, lookPos.getZ() >> 4));
                 }

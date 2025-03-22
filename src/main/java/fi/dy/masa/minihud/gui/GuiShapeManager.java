@@ -31,9 +31,9 @@ public class GuiShapeManager extends GuiListBase<ShapeBase, WidgetShapeEntry, Wi
     {
         super(10, 68);
 
-        this.title = StringUtils.translate("minihud.gui.title.shape_manager");
+        this.title = StringUtils.translate("purityhud.gui.title.shape_manager");
 
-        this.shapeRendererToggleButton = new ButtonOnOff(10, 42, -1, false, "minihud.gui.button.shape_renderer_toggle", RendererToggle.SHAPE_RENDERER.getBooleanValue());
+        this.shapeRendererToggleButton = new ButtonOnOff(10, 42, -1, false, "purityhud.gui.button.shape_renderer_toggle", RendererToggle.SHAPE_RENDERER.getBooleanValue());
 
         // The position will get updated later
         this.widgetDropDown = new WidgetDropDownList<>(0, 0, 160, 18, 200, 10, ImmutableList.copyOf(ShapeType.values()), ShapeType::getDisplayName);
@@ -85,7 +85,7 @@ public class GuiShapeManager extends GuiListBase<ShapeBase, WidgetShapeEntry, Wi
             x += this.createTabButton(x, y, width, tab);
         }
 
-        String name = StringUtils.translate("minihud.gui.button.add_shape");
+        String name = StringUtils.translate("purityhud.gui.button.add_shape");
         ButtonGeneric addShapeButton = new ButtonGeneric(this.getScreenWidth() - 10, y, -1, true, name);
 
         // Check if there is enough space to put the dropdown widget and

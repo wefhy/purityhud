@@ -7,14 +7,14 @@ import fi.dy.masa.malilib.util.StringUtils;
 
 public enum ShapeType
 {
-    BOX                     ("box",                     "minihud.label.shapes.box",                     ShapeBox::new),
-    CIRCLE                  ("circle",                  "minihud.label.shapes.circle",                  ShapeCircle::new),
-    BLOCK_LINE              ("block_line",              "minihud.label.shapes.block_line",              ShapeLineBlock::new),
-    SPHERE_BLOCKY           ("sphere_blocky",           "minihud.label.shapes.sphere_blocky",           ShapeSphereBlocky::new),
-    ADJUSTABLE_SPAWN_SPHERE ("adjustable_spawn_sphere", "minihud.label.shapes.adjustable_spawn_sphere", ShapeSpawnSphere::new),
-    CAN_SPAWN_SPHERE        ("can_spawn_sphere",        "minihud.label.shapes.can_spawn_sphere",        ShapeCanSpawnSphere::new),
-    CAN_DESPAWN_SPHERE      ("can_despawn_sphere",      "minihud.label.shapes.can_despawn_sphere",      ShapeCanDespawnSphere::new),
-    DESPAWN_SPHERE          ("despawn_sphere",          "minihud.label.shapes.despawn_sphere",          ShapeDespawnSphere::new);
+    BOX                     ("box",                     "purityhud.label.shapes.box",                     ShapeBox::new),
+    CIRCLE                  ("circle",                  "purityhud.label.shapes.circle",                  ShapeCircle::new),
+    BLOCK_LINE              ("block_line",              "purityhud.label.shapes.block_line",              ShapeLineBlock::new),
+    SPHERE_BLOCKY           ("sphere_blocky",           "purityhud.label.shapes.sphere_blocky",           ShapeSphereBlocky::new),
+    ADJUSTABLE_SPAWN_SPHERE ("adjustable_spawn_sphere", "purityhud.label.shapes.adjustable_spawn_sphere", ShapeSpawnSphere::new),
+    CAN_SPAWN_SPHERE        ("can_spawn_sphere",        "purityhud.label.shapes.can_spawn_sphere",        ShapeCanSpawnSphere::new),
+    CAN_DESPAWN_SPHERE      ("can_despawn_sphere",      "purityhud.label.shapes.can_despawn_sphere",      ShapeCanDespawnSphere::new),
+    DESPAWN_SPHERE          ("despawn_sphere",          "purityhud.label.shapes.despawn_sphere",          ShapeDespawnSphere::new);
 
     public static final ImmutableList<ShapeType> VALUES = ImmutableList.copyOf(values());
 

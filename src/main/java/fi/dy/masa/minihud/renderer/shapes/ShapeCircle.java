@@ -176,9 +176,9 @@ public class ShapeCircle extends ShapeCircleBase
     {
         List<String> lines = super.getWidgetHoverLines();
 
-        lines.add(2, StringUtils.translate("minihud.gui.hover.shape.circle.main_axis_value",
+        lines.add(2, StringUtils.translate("purityhud.gui.hover.shape.circle.main_axis_value",
                 org.apache.commons.lang3.StringUtils.capitalize(this.getMainAxis().toString().toLowerCase())));
-        lines.add(3, StringUtils.translate("minihud.gui.hover.shape.height_value", this.getHeight()));
+        lines.add(3, StringUtils.translate("purityhud.gui.hover.shape.height_value", this.getHeight()));
 
         return lines;
     }

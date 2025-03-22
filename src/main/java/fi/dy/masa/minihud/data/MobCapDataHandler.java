@@ -263,10 +263,10 @@ public class MobCapDataHandler
 
         if (data.getHasValidData() == false)
         {
-            return StringUtils.translate("minihud.info_line.mobcap.no_data");
+            return StringUtils.translate("purityhud.info_line.mobcap.no_data");
         }
 
-        return StringUtils.translate("minihud.info_line.mobcap.data",
+        return StringUtils.translate("purityhud.info_line.mobcap.data",
                                      this.getCapString(EntityCategory.MONSTER, data),
                                      this.getCapString(EntityCategory.CREATURE, data),
                                      this.getCapString(EntityCategory.AMBIENT, data),
@@ -280,7 +280,7 @@ public class MobCapDataHandler
     private String getCapString(EntityCategory type, MobCapData data)
     {
         MobCapData.Cap capData = data.getCap(type);
-        String keyStart = "minihud.info_line.mobcap.cap.";
+        String keyStart = "purityhud.info_line.mobcap.cap.";
         String key = keyStart + type.getName() + (capData.isFull() ? ".full" : ".nonfull");
 
         return StringUtils.translate(key, capData.getCurrent(), capData.getCap());

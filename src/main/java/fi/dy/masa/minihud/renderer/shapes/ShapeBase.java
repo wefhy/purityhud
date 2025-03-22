@@ -163,7 +163,7 @@ public abstract class ShapeBase extends OverlayRendererBase implements IRangeCha
     {
         List<String> lines = new ArrayList<>();
 
-        lines.add(StringUtils.translate("minihud.gui.hover.shape.type_value", this.type.getDisplayName()));
+        lines.add(StringUtils.translate("purityhud.gui.hover.shape.type_value", this.type.getDisplayName()));
 
         return lines;
     }

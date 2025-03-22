@@ -24,7 +24,7 @@ public class MixinLanguage
     )
     private static void loadCustomText(Args args, @Local Map.Entry<String, JsonElement> entry)
     {
-        if (args.<String>get(0).startsWith("minihud.") && entry.getValue() instanceof JsonPrimitive primitive)
+        if (args.<String>get(0).startsWith("purityhud.") && entry.getValue() instanceof JsonPrimitive primitive)
         {
             args.set(1, primitive.getAsString());
         }

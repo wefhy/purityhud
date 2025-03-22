@@ -44,7 +44,7 @@ public class OverlayRendererLightLevel extends OverlayRendererBase
 {
     public static final OverlayRendererLightLevel INSTANCE = new OverlayRendererLightLevel();
 
-    private static final Identifier TEXTURE_NUMBERS = Identifier.splitOn("minihud:textures/misc/light_level_numbers.png", ':');
+    private static final Identifier TEXTURE_NUMBERS = Identifier.splitOn("purityhud:textures/misc/light_level_numbers.png", ':');
 
     private final List<LightLevelInfo> lightInfos = new ArrayList<>();
     private final BlockPos.Mutable mutablePos = new BlockPos.Mutable();

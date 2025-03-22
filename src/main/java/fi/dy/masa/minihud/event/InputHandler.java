@@ -49,9 +49,9 @@ public class InputHandler implements IKeybindProvider, IMouseInputHandler
     @Override
     public void addHotkeys(IKeybindManager manager)
     {
-        manager.addHotkeysForCategory(Reference.MOD_NAME, "minihud.hotkeys.category.generic_hotkeys", Configs.Generic.HOTKEY_LIST);
-        manager.addHotkeysForCategory(Reference.MOD_NAME, "minihud.hotkeys.category.info_toggle_hotkeys", ImmutableList.copyOf(InfoToggle.VALUES));
-        manager.addHotkeysForCategory(Reference.MOD_NAME, "minihud.hotkeys.category.renderer_toggle_hotkeys", ImmutableList.copyOf(RendererToggle.VALUES));
+        manager.addHotkeysForCategory(Reference.MOD_NAME, "purityhud.hotkeys.category.generic_hotkeys", Configs.Generic.HOTKEY_LIST);
+        manager.addHotkeysForCategory(Reference.MOD_NAME, "purityhud.hotkeys.category.info_toggle_hotkeys", ImmutableList.copyOf(InfoToggle.VALUES));
+        manager.addHotkeysForCategory(Reference.MOD_NAME, "purityhud.hotkeys.category.renderer_toggle_hotkeys", ImmutableList.copyOf(RendererToggle.VALUES));
     }
 
     @Override

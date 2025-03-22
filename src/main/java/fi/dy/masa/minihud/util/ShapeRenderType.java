@@ -5,9 +5,9 @@ import fi.dy.masa.malilib.util.StringUtils;
 
 public enum ShapeRenderType implements IConfigOptionListEntry
 {
-    FULL_BLOCK  ("full_block", "minihud.label.shape_render_type.full_block"),
-    INNER_EDGE ("inner_edge", "minihud.label.shape_render_type.inner_edge"),
-    OUTER_EDGE ("outer_edge", "minihud.label.shape_render_type.outer_edge");
+    FULL_BLOCK  ("full_block", "purityhud.label.shape_render_type.full_block"),
+    INNER_EDGE ("inner_edge", "purityhud.label.shape_render_type.inner_edge"),
+    OUTER_EDGE ("outer_edge", "purityhud.label.shape_render_type.outer_edge");
 
     private final String configString;
     private final String translationKey;

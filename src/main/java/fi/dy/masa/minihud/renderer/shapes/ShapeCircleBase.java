@@ -184,13 +184,13 @@ public abstract class ShapeCircleBase extends ShapeBlocky
         BlockSnap snap = this.getBlockSnap();
         Vec3d c = this.center;
 
-        lines.add(StringUtils.translate("minihud.gui.hover.shape.radius_value", this.getRadius()));
-        lines.add(StringUtils.translate("minihud.gui.hover.shape.center_value", d2(c.x), d2(c.y), d2(c.z)));
+        lines.add(StringUtils.translate("purityhud.gui.hover.shape.radius_value", this.getRadius()));
+        lines.add(StringUtils.translate("purityhud.gui.hover.shape.center_value", d2(c.x), d2(c.y), d2(c.z)));
 
         if (snap != BlockSnap.NONE)
         {
             c = this.effectiveCenter;
-            lines.add(StringUtils.translate("minihud.gui.hover.shape.effective_center_value", d2(c.x), d2(c.y), d2(c.z)));
+            lines.add(StringUtils.translate("purityhud.gui.hover.shape.effective_center_value", d2(c.x), d2(c.y), d2(c.z)));
         }
 
         return lines;

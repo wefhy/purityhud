@@ -68,7 +68,7 @@ public class RendererCallbacks
             String rst = GuiBase.TXT_RST;
             String strStatus = green + StringUtils.translate("malilib.message.value.on") + rst;
             String strPos = String.format("x: %.2f, y: %.2f, z: %.2f", pos.x, pos.y, pos.z);
-            String message = StringUtils.translate("minihud.message.toggled_using_position", config.getPrettyName(), strStatus, strPos);
+            String message = StringUtils.translate("purityhud.message.toggled_using_position", config.getPrettyName(), strStatus, strPos);
 
             InfoUtils.printActionbarMessage(message);
         }
@@ -109,7 +109,7 @@ public class RendererCallbacks
 
             String strStatus = green + StringUtils.translate("malilib.message.value.on") + rst;
             String strDist = String.format("%d", DataStorage.getInstance().getSimulationDistance());
-            message = StringUtils.translate("minihud.message.toggled_using_player_spawn", config.getPrettyName(), strStatus, strDist);
+            message = StringUtils.translate("purityhud.message.toggled_using_player_spawn", config.getPrettyName(), strStatus, strDist);
 
             InfoUtils.printActionbarMessage(message);
             OverlayRendererSpawnChunks.setNeedsUpdate();
@@ -140,7 +140,7 @@ public class RendererCallbacks
                 {
                     String strStatus = green + StringUtils.translate("malilib.message.value.on") + rst;
                     String strPos = String.format("x: %d, y: %d, z: %d [R: %d]", spawn.getX(), spawn.getY(), spawn.getZ(), radius);
-                    message = StringUtils.translate("minihud.message.toggled_using_world_spawn", config.getPrettyName(), strStatus, strPos);
+                    message = StringUtils.translate("purityhud.message.toggled_using_world_spawn", config.getPrettyName(), strStatus, strPos);
 
                     if (mc.isIntegratedServerRunning() == false && HudDataManager.getInstance().hasServuxServer())
                     {
@@ -157,7 +157,7 @@ public class RendererCallbacks
 
                     String strStatus = red + StringUtils.translate("malilib.message.value.off") + rst;
                     String strPos = red + String.format("x: %d, y: %d, z: %d [R: 0]", spawn.getX(), spawn.getY(), spawn.getZ());
-                    message = StringUtils.translate("minihud.message.toggled_using_world_spawn", config.getPrettyName(), strStatus, strPos);
+                    message = StringUtils.translate("purityhud.message.toggled_using_world_spawn", config.getPrettyName(), strStatus, strPos);
 
                     RendererToggle.OVERLAY_SPAWN_CHUNK_OVERLAY_REAL.setBooleanValue(false);
                 }

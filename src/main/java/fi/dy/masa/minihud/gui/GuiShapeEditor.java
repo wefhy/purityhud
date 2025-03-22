@@ -57,7 +57,7 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
     public GuiShapeEditor(ShapeBase shape)
     {
         this.shape = shape;
-        this.title = StringUtils.translate("minihud.gui.title.shape_editor", shape.getDisplayName());
+        this.title = StringUtils.translate("purityhud.gui.title.shape_editor", shape.getDisplayName());
         this.configBlockSnap = new ConfigOptionList("blockSnap", BlockSnap.NONE, "");
     }
 
@@ -83,7 +83,7 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
 
     private void createColorInput(int x, int y)
     {
-        this.addLabel(x, y, -1, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.color"));
+        this.addLabel(x, y, -1, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.color"));
         y += 12;
 
         GuiTextFieldGeneric textField = new GuiTextFieldGeneric(x, y, 70, 17, this.textRenderer);
@@ -98,7 +98,7 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
 
     private void createShapeEditorElements(int x, int y)
     {
-        this.addLabel(x, y, -1, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.display_name_colon"));
+        this.addLabel(x, y, -1, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.display_name_colon"));
         y += 12;
 
         GuiTextFieldGeneric textField = new GuiTextFieldGeneric(x, y, 240, 17, this.textRenderer);
@@ -131,13 +131,13 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
 
                 if (isAdjustable == false)
                 {
-                    this.createShapeEditorElementDoubleField(x + 150, y + 2, shape::getMargin, shape::setMargin, "minihud.gui.label.margin_colon", false);
+                    this.createShapeEditorElementDoubleField(x + 150, y + 2, shape::getMargin, shape::setMargin, "purityhud.gui.label.margin_colon", false);
                 }
 
                 if (shape instanceof ShapeSpawnSphere)
                 {
-                    String key = "minihud.gui.button.shape_renderer.spawn_sphere.toggle_use_quadrants";
-                    String hover = StringUtils.translate("minihud.gui.button.hover.shape_renderer.spawn_sphere.toggle_use_quadrants");
+                    String key = "purityhud.gui.button.shape_renderer.spawn_sphere.toggle_use_quadrants";
+                    String hover = StringUtils.translate("purityhud.gui.button.hover.shape_renderer.spawn_sphere.toggle_use_quadrants");
                     ButtonOnOff button = new ButtonOnOff(x + 160, y + 30, -1, false, key, shape.getUseCornerQuadrants(), hover);
                     this.addButton(button, (btn, mbtn) -> this.toggleUseQuadrants(shape, button));
                 }
@@ -150,16 +150,16 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
             {
                 ShapeCircle shape = (ShapeCircle) this.shape;
                 this.createShapeEditorElementsSphereBase(x, y, true);
-                this.createShapeEditorElementIntField(x + 150, y + 36, shape::getHeight, shape::setHeight, "minihud.gui.label.height_colon", true);
-                this.createDirectionButton(x + 230, y + 36, shape::getMainAxis, shape::setMainAxis, "minihud.gui.label.shape.circle.main_axis_colon");
-                this.createRenderTypeButton(renderTypeX, renderTypeY, this.shape::getRenderType, this.shape::setRenderType, "minihud.gui.label.shape.render_type_colon");
+                this.createShapeEditorElementIntField(x + 150, y + 36, shape::getHeight, shape::setHeight, "purityhud.gui.label.height_colon", true);
+                this.createDirectionButton(x + 230, y + 36, shape::getMainAxis, shape::setMainAxis, "purityhud.gui.label.shape.circle.main_axis_colon");
+                this.createRenderTypeButton(renderTypeX, renderTypeY, this.shape::getRenderType, this.shape::setRenderType, "purityhud.gui.label.shape.render_type_colon");
                 this.createLayerEditControls(146, 162, this.getLayerRange());
                 break;
             }
 
             case SPHERE_BLOCKY:
                 this.createShapeEditorElementsSphereBase(x, y, true);
-                this.createRenderTypeButton(renderTypeX, renderTypeY, this.shape::getRenderType, this.shape::setRenderType, "minihud.gui.label.shape.render_type_colon");
+                this.createRenderTypeButton(renderTypeX, renderTypeY, this.shape::getRenderType, this.shape::setRenderType, "purityhud.gui.label.shape.render_type_colon");
                 this.createLayerEditControls(146, 162, this.getLayerRange());
                 break;
         }
@@ -169,11 +169,11 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
     {
         ShapeCircleBase shape = (ShapeCircleBase) this.shape;
 
-        this.addLabel(x, y, 60, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.center_colon"));
+        this.addLabel(x, y, 60, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.center_colon"));
 
         if (addRadiusInput)
         {
-            this.createShapeEditorElementDoubleField(x + 150, y + 2, shape::getRadius, shape::setRadius, "minihud.gui.label.radius_colon", true);
+            this.createShapeEditorElementDoubleField(x + 150, y + 2, shape::getRadius, shape::setRadius, "purityhud.gui.label.radius_colon", true);
         }
 
         y += 12;
@@ -187,14 +187,14 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
         btnX = button.getX() + button.getWidth() + 4;
 
         this.configBlockSnap.setOptionListValue(shape.getBlockSnap());
-        String label = StringUtils.translate("minihud.gui.label.shape.block_snap", shape.getBlockSnap().getDisplayName());
+        String label = StringUtils.translate("purityhud.gui.label.shape.block_snap", shape.getBlockSnap().getDisplayName());
         int width = this.getStringWidth(label) + 10;
 
         ConfigButtonOptionList buttonSnap = new ConfigButtonOptionList(btnX, y, width, 20, this.configBlockSnap, label);
         this.addButton(buttonSnap, new ButtonListenerSphereBlockSnap(shape, this));
         btnX = buttonSnap.getX() + buttonSnap.getWidth() + 4;
 
-        ButtonOnOff combineQuadsButton = new ButtonOnOff(btnX, y, -1, false, "minihud.gui.button.shape_renderer.toggle_combine_quads", ((ShapeBlocky) this.shape).getCombineQuads());
+        ButtonOnOff combineQuadsButton = new ButtonOnOff(btnX, y, -1, false, "purityhud.gui.button.shape_renderer.toggle_combine_quads", ((ShapeBlocky) this.shape).getCombineQuads());
         this.addButton(combineQuadsButton, (b, mb) -> this.toggleCombineQuads(shape, combineQuadsButton));
         y += 34;
 
@@ -227,22 +227,22 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
 
         if (shape.isGridEnabled())
         {
-            this.addLabel(x, y, 60, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.shape.box.grid_size"));
+            this.addLabel(x, y, 60, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.shape.box.grid_size"));
             GuiUtils.createVec3dInputsVertical(x, y + 12, 50, shape.getGridSize(),
                                                new Vec3dEditor(shape::getGridSize, shape::setGridSize, this), true, this);
 
             y += 70;
-            this.addLabel(x, y, 60, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.shape.box.grid_start_offset"));
+            this.addLabel(x, y, 60, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.shape.box.grid_start_offset"));
             GuiUtils.createVec3dInputsVertical(x, y + 12, 50, shape.getGridStartOffset(),
                                                new Vec3dEditor(shape::getGridStartOffset, shape::setGridStartOffset, this), true, this);
 
-            this.addLabel(x + 100, y, 60, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.shape.box.grid_end_offset"));
+            this.addLabel(x + 100, y, 60, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.shape.box.grid_end_offset"));
             GuiUtils.createVec3dInputsVertical(x + 100, y + 12, 50, shape.getGridEndOffset(),
                                                new Vec3dEditor(shape::getGridEndOffset, shape::setGridEndOffset, this), true, this);
         }
 
         y = yIn + 148;
-        ButtonGeneric button = new ButtonOnOff(x, y, -1, false, "minihud.gui.label.shape.box.grid_enabled", shape.isGridEnabled());
+        ButtonGeneric button = new ButtonOnOff(x, y, -1, false, "purityhud.gui.label.shape.box.grid_enabled", shape.isGridEnabled());
         this.addButton(button, (btn, mbtn) -> this.toggleGridEnabled(shape));
     }
 
@@ -254,8 +254,8 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
         int x2 = x + 160;
         int y = yIn + 4;
 
-        this.addLabel(x, y, -1, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.shape.box.minimum_coord"));
-        this.addLabel(x2, y, -1, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.shape.box.maximum_coord"));
+        this.addLabel(x, y, -1, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.shape.box.minimum_coord"));
+        this.addLabel(x2, y, -1, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.shape.box.maximum_coord"));
         y += 14;
 
         GuiUtils.createVec3dInputsVertical(x , y, 120, shape.getStartPos(), new Vec3dEditor(shape::getStartPos, shape::setStartPos, this), true, this);
@@ -271,14 +271,14 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
 
         int btnX = xIn + 11;
         this.configBlockSnap.setOptionListValue(shape.getBlockSnap());
-        String label = StringUtils.translate("minihud.gui.label.shape.block_snap", shape.getBlockSnap().getDisplayName());
+        String label = StringUtils.translate("purityhud.gui.label.shape.block_snap", shape.getBlockSnap().getDisplayName());
         int width = this.getStringWidth(label) + 10;
 
         ConfigButtonOptionList buttonSnap = new ConfigButtonOptionList(btnX, y, width, 20, this.configBlockSnap, label);
         this.addButton(buttonSnap, new ButtonListenerSphereBlockSnap(shape, this));
         btnX += buttonSnap.getWidth() + 4;
 
-        ButtonOnOff combineQuadsButton = new ButtonOnOff(btnX, y, -1, false, "minihud.gui.button.shape_renderer.toggle_combine_quads", ((ShapeBlocky) this.shape).getCombineQuads());
+        ButtonOnOff combineQuadsButton = new ButtonOnOff(btnX, y, -1, false, "purityhud.gui.button.shape_renderer.toggle_combine_quads", ((ShapeBlocky) this.shape).getCombineQuads());
         this.addButton(combineQuadsButton, (b, mb) -> this.toggleCombineQuads(shape, combineQuadsButton));
         y += 24;
 
@@ -308,8 +308,8 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
 
     private void addBoxSideToggleCheckbox(int x, int y, Direction side, ShapeBox shape)
     {
-        String sideName = StringUtils.translate("minihud.gui.name.box.box_side." + side.getName());
-        WidgetCheckBox cb = new WidgetCheckBox(x, y, MaLiLibIcons.MINUS, MaLiLibIcons.PLUS, this.capitalize(sideName), StringUtils.translate("minihud.gui.hover.shape.box.box_side", sideName));
+        String sideName = StringUtils.translate("purityhud.gui.name.box.box_side." + side.getName());
+        WidgetCheckBox cb = new WidgetCheckBox(x, y, MaLiLibIcons.MINUS, MaLiLibIcons.PLUS, this.capitalize(sideName), StringUtils.translate("purityhud.gui.hover.shape.box.box_side", sideName));
         cb.setChecked(shape.isSideEnabled(side));
         cb.setListener((w) -> this.toggleSideEnabled(side, shape));
         this.addWidget(cb);
@@ -324,10 +324,10 @@ public class GuiShapeEditor extends GuiRenderLayerEditBase
 
     public void createBoxInputs(int x1, int y1, int x2, int y2, int textFieldWidth, ShapeBox shape)
     {
-        this.addLabel(x1, y1, -1, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.shape.box.corner_1"));
+        this.addLabel(x1, y1, -1, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.shape.box.corner_1"));
         y1 += 12;
 
-        this.addLabel(x2, y2, -1, 14, 0xFFFFFFFF, StringUtils.translate("minihud.gui.label.shape.box.corner_2"));
+        this.addLabel(x2, y2, -1, 14, 0xFFFFFFFF, StringUtils.translate("purityhud.gui.label.shape.box.corner_2"));
         y2 += 12;
 
         GuiUtils.createVec3dInputsVertical(x1, y1, textFieldWidth, shape.getCorner1(), new Vec3dEditor(shape::getCorner1, shape::setCorner1, this), true, this);

@@ -94,8 +94,8 @@ public class ShapeLineBlock extends ShapeBlocky
         Vec3d s = this.startPos;
         Vec3d e = this.endPos;
 
-        lines.add(StringUtils.translate("minihud.gui.label.shape.line.start", d2(s.x), d2(s.y), d2(s.z)));
-        lines.add(StringUtils.translate("minihud.gui.label.shape.line.end",   d2(e.x), d2(e.y), d2(e.z)));
+        lines.add(StringUtils.translate("purityhud.gui.label.shape.line.start", d2(s.x), d2(s.y), d2(s.z)));
+        lines.add(StringUtils.translate("purityhud.gui.label.shape.line.end",   d2(e.x), d2(e.y), d2(e.z)));
 
         return lines;
     }

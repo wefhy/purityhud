@@ -460,8 +460,8 @@ public class ShapeBox extends ShapeBase
     {
         List<String> lines = super.getWidgetHoverLines();
         Box box = this.box;
-        lines.add(StringUtils.translate("minihud.gui.label.shape.box.min_corner", box.minX, box.minY, box.minZ));
-        lines.add(StringUtils.translate("minihud.gui.label.shape.box.max_corner", box.maxX, box.maxY, box.maxZ));
+        lines.add(StringUtils.translate("purityhud.gui.label.shape.box.min_corner", box.minX, box.minY, box.minZ));
+        lines.add(StringUtils.translate("purityhud.gui.label.shape.box.max_corner", box.maxX, box.maxY, box.maxZ));
         return lines;
     }
 

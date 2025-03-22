@@ -146,8 +146,8 @@ public class MiscUtils
             // FIXME 1.19.3+ this is not validated now... with AIOOB it will return the entry for ID 0
             AxolotlEntity.Variant variant = AxolotlEntity.Variant.byId(variantId);
             String variantName = variant.getName();
-            MutableText labelText = Text.translatable("minihud.label.axolotl_tooltip.label");
-            MutableText valueText = Text.translatable("minihud.label.axolotl_tooltip.value", variantName, variantId);
+            MutableText labelText = Text.translatable("purityhud.label.axolotl_tooltip.label");
+            MutableText valueText = Text.translatable("purityhud.label.axolotl_tooltip.value", variantName, variantId);
 
             if (variantId < AXOLOTL_COLORS.length)
             {
@@ -201,18 +201,18 @@ public class MiscUtils
                         beeText = Text.of(beeName);
                     }
 
-                    lines.add(Math.min(1, lines.size()), Text.translatable("minihud.label.bee_tooltip.name", beeText));
+                    lines.add(Math.min(1, lines.size()), Text.translatable("purityhud.label.bee_tooltip.name", beeText));
                 }
             }
             Text text;
 
             if (babyCount > 0)
             {
-                text = Text.translatable("minihud.label.bee_tooltip.count_babies", String.valueOf(count), String.valueOf(babyCount));
+                text = Text.translatable("purityhud.label.bee_tooltip.count_babies", String.valueOf(count), String.valueOf(babyCount));
             }
             else
             {
-                text = Text.translatable("minihud.label.bee_tooltip.count", String.valueOf(count));
+                text = Text.translatable("purityhud.label.bee_tooltip.count", String.valueOf(count));
             }
 
             lines.add(Math.min(1, lines.size()), text);
@@ -245,11 +245,11 @@ public class MiscUtils
 
             if (count > maxCount)
             {
-                result = StringUtils.translate("minihud.label.bundle_tooltip.count.full", count, maxCount, fillPercent);
+                result = StringUtils.translate("purityhud.label.bundle_tooltip.count.full", count, maxCount, fillPercent);
             }
             else
             {
-                result = StringUtils.translate("minihud.label.bundle_tooltip.count", count, maxCount, fillPercent);
+                result = StringUtils.translate("purityhud.label.bundle_tooltip.count", count, maxCount, fillPercent);
             }
 
             lines.add(Text.of(result));
@@ -270,7 +270,7 @@ public class MiscUtils
                 honeyLevel = String.valueOf(honey);
             }
 
-            lines.add(Math.min(1, lines.size()), Text.translatable("minihud.label.honey_info.level", honeyLevel));
+            lines.add(Math.min(1, lines.size()), Text.translatable("purityhud.label.honey_info.level", honeyLevel));
         }
     }
 
@@ -288,19 +288,19 @@ public class MiscUtils
 
             if (aFloat != null)
             {
-                lines.add(StringUtils.translateAsText("minihud.label.custom_model_data_tooltip.float", aFloat));
+                lines.add(StringUtils.translateAsText("purityhud.label.custom_model_data_tooltip.float", aFloat));
             }
             if (aFlag != null)
             {
-                lines.add(StringUtils.translateAsText("minihud.label.custom_model_data_tooltip.flag", aFlag));
+                lines.add(StringUtils.translateAsText("purityhud.label.custom_model_data_tooltip.flag", aFlag));
             }
             if (aString != null)
             {
-                lines.add(StringUtils.translateAsText("minihud.label.custom_model_data_tooltip.string", aString));
+                lines.add(StringUtils.translateAsText("purityhud.label.custom_model_data_tooltip.string", aString));
             }
             if (aColor != null)
             {
-                lines.add(StringUtils.translateAsText("minihud.label.custom_model_data_tooltip.color", aColor));
+                lines.add(StringUtils.translateAsText("purityhud.label.custom_model_data_tooltip.color", aColor));
             }
         }
     }
@@ -311,7 +311,7 @@ public class MiscUtils
 
         if (data != null)
         {
-            lines.add(StringUtils.translateAsText("minihud.label.food_tooltip", ((float) data.nutrition() / 2) , data.saturation()));
+            lines.add(StringUtils.translateAsText("purityhud.label.food_tooltip", ((float) data.nutrition() / 2) , data.saturation()));
         }
     }
 
@@ -322,7 +322,7 @@ public class MiscUtils
         if (data != null && data.target().isPresent())
         {
             GlobalPos pos = data.target().get();
-            lines.add(StringUtils.translateAsText("minihud.label.lodestone_tooltip", pos.dimension().getValue().getPath(), pos.pos().toShortString()));
+            lines.add(StringUtils.translateAsText("purityhud.label.lodestone_tooltip", pos.dimension().getValue().getPath(), pos.pos().toShortString()));
         }
     }
 

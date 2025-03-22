@@ -5,9 +5,9 @@ import fi.dy.masa.malilib.util.StringUtils;
 
 public enum BlockGridMode implements IConfigOptionListEntry
 {
-    ALL         ("all",         "minihud.label.blockgridmode.all"),
-    NON_AIR     ("non_air",     "minihud.label.blockgridmode.non_air"),
-    ADJACENT    ("adjacent",    "minihud.label.blockgridmode.adjacent");
+    ALL         ("all",         "purityhud.label.blockgridmode.all"),
+    NON_AIR     ("non_air",     "purityhud.label.blockgridmode.non_air"),
+    ADJACENT    ("adjacent",    "purityhud.label.blockgridmode.adjacent");
 
     private final String configString;
     private final String unlocName;

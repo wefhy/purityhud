@@ -112,7 +112,7 @@ public abstract class ShapeBlocky extends ShapeBase
         List<String> lines = super.getWidgetHoverLines();
 
         BlockSnap snap = this.getBlockSnap();
-        lines.add(StringUtils.translate("minihud.gui.hover.shape.block_snap", snap.getDisplayName()));
+        lines.add(StringUtils.translate("purityhud.gui.hover.shape.block_snap", snap.getDisplayName()));
 
         return lines;
     }

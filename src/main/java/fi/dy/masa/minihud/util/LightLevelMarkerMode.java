@@ -5,9 +5,9 @@ import fi.dy.masa.malilib.util.StringUtils;
 
 public enum LightLevelMarkerMode implements IConfigOptionListEntry
 {
-    NONE    ("none",    "minihud.label.light_level_marker_mode.none"),
-    CROSS   ("cross",   "minihud.label.light_level_marker_mode.cross"),
-    SQUARE  ("square",  "minihud.label.light_level_marker_mode.square");
+    NONE    ("none",    "purityhud.label.light_level_marker_mode.none"),
+    CROSS   ("cross",   "purityhud.label.light_level_marker_mode.cross"),
+    SQUARE  ("square",  "purityhud.label.light_level_marker_mode.square");
 
     private final String configString;
     private final String translationKey;

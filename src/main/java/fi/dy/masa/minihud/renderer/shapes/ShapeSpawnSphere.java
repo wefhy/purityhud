@@ -89,7 +89,7 @@ public class ShapeSpawnSphere extends ShapeSphereBlocky
     public List<String> getWidgetHoverLines()
     {
         List<String> lines = super.getWidgetHoverLines();
-        lines.add(2, StringUtils.translate("minihud.gui.hover.shape.margin_value", d2(this.margin)));
+        lines.add(2, StringUtils.translate("purityhud.gui.hover.shape.margin_value", d2(this.margin)));
         return lines;
     }
 

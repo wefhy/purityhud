@@ -385,7 +385,7 @@ public class DataStorage
     {
         this.distanceReferencePoint = pos;
         String str = String.format("x: %.2f, y: %.2f, z: %.2f", pos.x, pos.y, pos.z);
-        InfoUtils.printActionbarMessage("minihud.message.distance_reference_point_set", str);
+        InfoUtils.printActionbarMessage("purityhud.message.distance_reference_point_set", str);
     }
 
     public void markChunkForHeightmapCheck(int chunkX, int chunkZ)
@@ -432,35 +432,35 @@ public class DataStorage
     {
         String[] parts = message.split(" ");
 
-        if (parts.length > 0 && (parts[0].equals("minihud-seed") || parts[0].equals("/minihud-seed")))
+        if (parts.length > 0 && (parts[0].equals("purityhud-seed") || parts[0].equals("/minihud-seed")))
         {
             if (parts.length == 2)
             {
                 try
                 {
                     HudDataManager.getInstance().setWorldSeed(Long.parseLong(parts[1]));
-                    InfoUtils.printActionbarMessage("minihud.message.seed_set", HudDataManager.getInstance().worldSeed());
+                    InfoUtils.printActionbarMessage("purityhud.message.seed_set", HudDataManager.getInstance().worldSeed());
                 }
                 catch (NumberFormatException e)
                 {
-                    InfoUtils.printActionbarMessage("minihud.message.error.invalid_seed");
+                    InfoUtils.printActionbarMessage("purityhud.message.error.invalid_seed");
                 }
             }
             else if (parts.length == 1)
             {
                 if (HudDataManager.getInstance().hasStoredWorldSeed())
                 {
-                    InfoUtils.printActionbarMessage("minihud.message.seed_is", HudDataManager.getInstance().worldSeed());
+                    InfoUtils.printActionbarMessage("purityhud.message.seed_is", HudDataManager.getInstance().worldSeed());
                 }
                 else
                 {
-                    InfoUtils.printActionbarMessage("minihud.message.no_seed");
+                    InfoUtils.printActionbarMessage("purityhud.message.no_seed");
                 }
             }
 
             return true;
         }
-        else if (parts.length > 0 && (parts[0].equals("minihud-spawnchunkradius") || parts[0].equals("/minihud-spawnchunkradius")))
+        else if (parts.length > 0 && (parts[0].equals("purityhud-spawnchunkradius") || parts[0].equals("/minihud-spawnchunkradius")))
         {
             if (parts.length == 2)
             {
@@ -474,12 +474,12 @@ public class DataStorage
                     }
                     else
                     {
-                        InfoUtils.printActionbarMessage("minihud.message.error.invalid_spawn_chunk_radius");
+                        InfoUtils.printActionbarMessage("purityhud.message.error.invalid_spawn_chunk_radius");
                     }
                 }
                 catch (NumberFormatException e)
                 {
-                    InfoUtils.printActionbarMessage("minihud.message.error.invalid_spawn_chunk_radius");
+                    InfoUtils.printActionbarMessage("purityhud.message.error.invalid_spawn_chunk_radius");
                 }
             }
             else if (parts.length == 1)
@@ -488,11 +488,11 @@ public class DataStorage
                 {
                     int radius = HudDataManager.getInstance().getSpawnChunkRadius();
                     String strRadius = radius > 0 ? GuiBase.TXT_GREEN + String.format("%d", radius) + GuiBase.TXT_RST : GuiBase.TXT_RED + String.format("%d", radius) + GuiBase.TXT_RST;
-                    InfoUtils.printActionbarMessage(StringUtils.translate("minihud.message.spawn_chunk_radius_is", strRadius));
+                    InfoUtils.printActionbarMessage(StringUtils.translate("purityhud.message.spawn_chunk_radius_is", strRadius));
                 }
                 else
                 {
-                    InfoUtils.printActionbarMessage("minihud.message.no_spawn_chunk_radius");
+                    InfoUtils.printActionbarMessage("purityhud.message.no_spawn_chunk_radius");
                 }
             }
 
@@ -525,7 +525,7 @@ public class DataStorage
                         //this.setWorldSeed(Long.parseLong(str.substring(i1 + 1, i2)));
                         HudDataManager.getInstance().setWorldSeed(Long.parseLong(str));
                         MiniHUD.LOGGER.info("Received world seed from the vanilla /seed command: {}", HudDataManager.getInstance().worldSeed());
-                        InfoUtils.printActionbarMessage("minihud.message.seed_set", HudDataManager.getInstance().worldSeed());
+                        InfoUtils.printActionbarMessage("purityhud.message.seed_set", HudDataManager.getInstance().worldSeed());
                     }
                 }
                 catch (Exception e)
@@ -540,7 +540,7 @@ public class DataStorage
                 {
                     HudDataManager.getInstance().setWorldSeed(Long.parseLong(text.getArgs()[1].toString()));
                     MiniHUD.LOGGER.info("Received world seed from the JED '/jed seed' command: {}", HudDataManager.getInstance().worldSeed());
-                    InfoUtils.printActionbarMessage("minihud.message.seed_set", HudDataManager.getInstance().worldSeed());
+                    InfoUtils.printActionbarMessage("purityhud.message.seed_set", HudDataManager.getInstance().worldSeed());
                 }
                 catch (Exception e)
                 {
@@ -561,7 +561,7 @@ public class DataStorage
 
                     String spawnStr = String.format("x: %d, y: %d, z: %d", newSpawn.getX(), newSpawn.getY(), newSpawn.getZ());
                     MiniHUD.LOGGER.info("Received world spawn from the vanilla /setworldspawn command: {}", spawnStr);
-                    InfoUtils.printActionbarMessage("minihud.message.spawn_set", spawnStr);
+                    InfoUtils.printActionbarMessage("purityhud.message.spawn_set", spawnStr);
                 }
                 catch (Exception e)
                 {
@@ -588,7 +588,7 @@ public class DataStorage
                         {
                             int radius = HudDataManager.getInstance().getSpawnChunkRadius();
                             String strRadius = radius > 0 ? GuiBase.TXT_GREEN + String.format("%d", radius) + GuiBase.TXT_RST : GuiBase.TXT_RED + String.format("%d", radius) + GuiBase.TXT_RST;
-                            InfoUtils.printActionbarMessage(StringUtils.translate("minihud.message.spawn_chunk_radius_is", strRadius));
+                            InfoUtils.printActionbarMessage(StringUtils.translate("purityhud.message.spawn_chunk_radius_is", strRadius));
                         }
                     }
                 }

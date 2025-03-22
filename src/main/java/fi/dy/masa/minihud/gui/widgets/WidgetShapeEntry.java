@@ -149,9 +149,9 @@ public class WidgetShapeEntry extends WidgetListEntryBase<ShapeBase>
 
         public enum Type
         {
-            CONFIGURE   ("minihud.gui.button.configure"),
-            ENABLED     ("minihud.gui.button.shape_entry.enabled"),
-            REMOVE      ("minihud.gui.button.remove");
+            CONFIGURE   ("purityhud.gui.button.configure"),
+            ENABLED     ("purityhud.gui.button.shape_entry.enabled"),
+            REMOVE      ("purityhud.gui.button.remove");
 
             private final String translationKey;
 

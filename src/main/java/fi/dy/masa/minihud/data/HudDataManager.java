@@ -229,7 +229,7 @@ public class HudDataManager
                 if (message)
                 {
                     String strRadius = radius > 0 ? GuiBase.TXT_GREEN + String.format("%d", radius) + GuiBase.TXT_RST : GuiBase.TXT_RED + String.format("%d", radius) + GuiBase.TXT_RST;
-                    InfoUtils.printActionbarMessage(StringUtils.translate("minihud.message.spawn_chunk_radius_set", strRadius));
+                    InfoUtils.printActionbarMessage(StringUtils.translate("purityhud.message.spawn_chunk_radius_set", strRadius));
                 }
 
                 OverlayRendererSpawnChunks.setNeedsUpdate();
