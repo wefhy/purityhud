@@ -67,10 +67,6 @@ public class InfoLineEntityVariant extends InfoLine
         super(type);
     }
 
-    public InfoLineEntityVariant()
-    {
-        super(InfoToggle.ENTITY_VARIANT);
-    }
 
     @Override
     public boolean succeededType() { return false; }

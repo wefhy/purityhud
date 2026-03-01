@@ -27,10 +27,6 @@ public class InfoLineLookingAtEntity extends InfoLine
         super(type);
     }
 
-    public InfoLineLookingAtEntity()
-    {
-        this(InfoToggle.LOOKING_AT_ENTITY);
-    }
 
     @Override
     public boolean succeededType() { return false; }

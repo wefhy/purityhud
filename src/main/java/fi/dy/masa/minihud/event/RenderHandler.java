@@ -1293,63 +1293,6 @@ public class RenderHandler implements IRenderer
                 return;
             }
         }
-        else if (type == InfoToggle.LOOKING_AT_ENTITY)
-        {
-            // Make into a generic call
-            InfoLine parser = type.initParser();
-
-            if (parser != null)
-            {
-                Pair<Entity, CompoundData> pair = this.getTargetEntity(world, mc);
-
-                if (pair != null)
-                {
-                    InfoLineContext ctx = new InfoLineContext(world, pair.getLeft(), null, null, null, null, pair.getRight());
-                    this.processEntries(parser.parse(ctx));
-
-                    if (parser.succeededType())
-                    {
-                        this.addedTypes.add(type);
-                    }
-                }
-                else
-                {
-                    return;
-                }
-            }
-            else
-            {
-                return;
-            }
-        }
-        else if (type == InfoToggle.ENTITY_VARIANT)
-        {
-            InfoLine parser = type.initParser();
-
-            if (parser != null)
-            {
-                Pair<Entity, CompoundData> pair = this.getTargetEntity(world, mc);
-
-                if (pair != null)
-                {
-                    InfoLineContext ctx = new InfoLineContext(world, pair.getLeft(), null, null, null, null, pair.getRight());
-                    this.processEntries(parser.parse(ctx));
-
-                    if (parser.succeededType())
-                    {
-                        this.addedTypes.add(type);
-                    }
-                }
-                else
-                {
-                    return;
-                }
-            }
-            else
-            {
-                return;
-            }
-        }
         else if (type == InfoToggle.ENTITY_HOME_POS)
         {
             InfoLine parser = type.initParser();

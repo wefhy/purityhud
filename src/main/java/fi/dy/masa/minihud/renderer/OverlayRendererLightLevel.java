@@ -105,7 +105,7 @@ public class OverlayRendererLightLevel extends OverlayRendererBase
 //        long pre = System.nanoTime();
         BlockPos pos = PositionUtils.getEntityBlockPos(entity);
         this.hasData = this.updateLightLevels(mc.level, pos);
-        this.renderThrough = Configs.Generic.LIGHT_LEVEL_RENDER_THROUGH.getBooleanValue();
+        this.renderThrough = false;
 
         if (this.hasData())
         {

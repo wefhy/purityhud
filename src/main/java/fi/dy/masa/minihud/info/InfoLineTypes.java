@@ -84,10 +84,10 @@ public class InfoLineTypes
     // Entity
     public static final InfoLineType<InfoLineEntityRegName>         ENTITY_REG              = InfoLineType.build(InfoLineEntityRegName::new,        InfoToggle.ENTITY_REG_NAME, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
     public static final InfoLineType<InfoLineLookingAtEffects>      LOOKING_AT_EFFECTS      = InfoLineType.build(InfoLineLookingAtEffects::new,     InfoToggle.LOOKING_AT_EFFECTS, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
-    public static final InfoLineType<InfoLineLookingAtEntity>       LOOKING_AT_ENTITY       = InfoLineType.build(InfoLineLookingAtEntity::new,      InfoToggle.LOOKING_AT_ENTITY, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
+//    public static final InfoLineType<InfoLineLookingAtEntity>       LOOKING_AT_ENTITY       = InfoLineType.build(InfoLineLookingAtEntity::new,      InfoToggle.LOOKING_AT_ENTITY, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
     public static final InfoLineType<InfoLineLookingAtPlayerExp>    LOOKING_AT_PLAYER_EXP   = InfoLineType.build(InfoLineLookingAtPlayerExp::new,   InfoToggle.LOOKING_AT_PLAYER_EXP, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
     public static final InfoLineType<InfoLineZombieConversion>      ZOMBIE_CONVERSION       = InfoLineType.build(InfoLineZombieConversion::new,     InfoToggle.ZOMBIE_CONVERSION, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
-    public static final InfoLineType<InfoLineEntityVariant>         ENTITY_VARIANT          = InfoLineType.build(InfoLineEntityVariant::new,        InfoToggle.ENTITY_VARIANT, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
+//    public static final InfoLineType<InfoLineEntityVariant>         ENTITY_VARIANT          = InfoLineType.build(InfoLineEntityVariant::new,        InfoToggle.ENTITY_VARIANT, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
     public static final InfoLineType<InfoLineDolphinTreasure>       DOLPHIN_TREASURE        = InfoLineType.build(InfoLineDolphinTreasure::new,      InfoToggle.DOLPHIN_TREASURE, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
     public static final InfoLineType<InfoLinePandaGene>             PANDA_GENE              = InfoLineType.build(InfoLinePandaGene::new,            InfoToggle.PANDA_GENE, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
     public static final InfoLineType<InfoLineHomePos>               HOME_POS                = InfoLineType.build(InfoLineHomePos::new,              InfoToggle.ENTITY_HOME_POS, List.of(InfoLineFlag.WORLD, InfoLineFlag.ENTITY));
