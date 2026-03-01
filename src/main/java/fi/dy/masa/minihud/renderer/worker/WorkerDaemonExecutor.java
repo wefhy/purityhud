@@ -1,29 +1,14 @@
 package fi.dy.masa.minihud.renderer.worker;
 
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import fi.dy.masa.malilib.interfaces.IThreadDaemonExecutor;
-import fi.dy.masa.malilib.util.MathUtils;
 import fi.dy.masa.minihud.MiniHUD;
 
 public class WorkerDaemonExecutor implements IThreadDaemonExecutor<AbstractWorkerTask<?>>
 {
 	private final AtomicBoolean running = new AtomicBoolean(true);
-	private final AtomicBoolean paused = new AtomicBoolean(false);
-	private final long sleepTime;
-	private final float sleepDelay;
-	private long lastTaskTime;
-
-	public WorkerDaemonExecutor()
-	{
-		this(600000L);  // 10 min
-	}
-
-	public WorkerDaemonExecutor(long sleepTime)
-	{
-		this.sleepTime = MathUtils.clamp(sleepTime, 60000L, Long.MAX_VALUE); // 1 min
-		this.sleepDelay = 15.0F;
-	}
 
 	@Override
 	public boolean isRunning()
@@ -32,144 +17,49 @@ public class WorkerDaemonExecutor implements IThreadDaemonExecutor<AbstractWorke
 	}
 
 	@Override
-	public boolean isPaused()
-	{
-		return this.paused.get();
-	}
-
-	@Override
 	public void start()
 	{
-		if (!this.isRunning())
-		{
-			MiniHUD.debugLog("Executor: Starting");
-			if (this.isPaused())
-			{
-				this.paused.set(false);
-			}
-
-			this.running.set(true);
-		}
-
-		this.run();
-	}
-
-	@Override
-	public void interrupt(InterruptedException interrupt)
-	{
-		MiniHUD.debugLog("Executor: Interrupt Signal: {}", interrupt.getLocalizedMessage() != null
-		                                                   ? interrupt.getLocalizedMessage()  // This is null sometimes?
-		                                                   : "received interrupt signal");
-		if (this.isPaused() || !this.isRunning())
-		{
-			this.resume();
-		}
-	}
-
-	@Override
-	public void pause()
-	{
-		MiniHUD.debugLog("Executor: Pausing");
-		this.paused.set(true);
-	}
-
-	@Override
-	public void resume()
-	{
-		if (this.isPaused())
-		{
-			MiniHUD.debugLog("Executor: Resuming");
-			this.paused.set(false);
-		}
-
-		this.start();
+		this.running.set(true);
 	}
 
 	@Override
 	public void stop()
 	{
-		MiniHUD.debugLog("Executor: Stopping");
-		if (!this.isPaused())
-		{
-			this.paused.set(true);
-		}
-		if (this.isRunning())
-		{
-			this.running.set(false);
-		}
-	}
-
-	@Override
-	public long sleepTime()
-	{
-		return this.sleepTime;
-	}
-
-	@Override
-	public String getName()
-	{
-		return WorkerDaemonHandler.INSTANCE.getName();
-	}
-
-	@Override
-	public boolean hasTasks()
-	{
-		return WorkerDaemonHandler.INSTANCE.hasTasks();
+		this.running.set(false);
 	}
 
 	@Override
 	public void run()
 	{
-		if (!this.isCorrectThread()) { return; }
-		this.lastTaskTime = System.currentTimeMillis();
-		MiniHUD.debugLog("Executor: Running: [{}/{}]", this.isRunning(), this.isPaused());
-
 		while (this.isRunning())
 		{
-			if (this.isPaused() && this.hasTasks())
+			try
 			{
-				this.resume();
+				AbstractWorkerTask<?> task = WorkerDaemonHandler.INSTANCE.getNextTask();
+
+				if (task != null)
+				{
+					this.processTask(task);
+				}
+				else
+				{
+					Thread.sleep(10L);
+				}
 			}
-			else if (!this.isPaused() && this.loopSafe())
+			catch (InterruptedException interrupt)
 			{
-				this.paused.set(true);
-				this.sleep();
+				MiniHUD.debugLog("Executor interrupted: {}", Objects.toString(interrupt.getLocalizedMessage(), "no message"));
+				this.stop();
+				Thread.currentThread().interrupt();
+				return;
+			}
+			catch (Exception err)
+			{
+				MiniHUD.LOGGER.error("WorkerDaemonExecutor: Exception: {}", err.getLocalizedMessage());
+				this.stop();
 				return;
 			}
 		}
-	}
-
-	@Override
-	public boolean loopSafe()
-	{
-		try
-		{
-			AbstractWorkerTask<?> task = WorkerDaemonHandler.INSTANCE.getNextTask();
-
-			if (task != null)
-			{
-				this.processTask(task);
-				this.lastTaskTime = System.currentTimeMillis();
-				return false;
-			}
-		}
-		catch (InterruptedException e)
-		{
-			this.interrupt(e);
-		}
-		catch (Exception err)
-		{
-			MiniHUD.LOGGER.error("loopSafe: Exception: {}", err.getLocalizedMessage());
-		}
-
-		return this.shouldPause();
-	}
-
-	@Override
-	public boolean shouldPause()
-	{
-		if (this.hasTasks()) { return false; }
-		return (System.currentTimeMillis() - this.lastTaskTime) > (this.sleepDelay * 1000L);
 	}
 
 	@Override
