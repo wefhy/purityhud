@@ -76,7 +76,7 @@ public enum RendererToggle implements IEnumBooleanHotkey
     ;
 
     public static final ImmutableList<@NotNull RendererToggle> VALUES = ImmutableList.copyOf(values());
-    private static final String RENDER_KEY = Reference.MOD_ID+".config.render_toggle";
+    private static final String RENDER_KEY = Reference.TRANSLATION_KEY_PREFIX + ".config.render_toggle";
 
     private final String name;
     private String comment;
@@ -291,7 +291,7 @@ public enum RendererToggle implements IEnumBooleanHotkey
 
         if (comment != null && this.serverDataRequired)
         {
-            return comment + "\n" + StringUtils.translate(Reference.MOD_ID + ".label.config_comment.server_side_data");
+            return comment + "\n" + StringUtils.translate(Reference.TRANSLATION_KEY_PREFIX + ".label.config_comment.server_side_data");
         }
 
         return comment;

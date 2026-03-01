@@ -94,7 +94,7 @@ public enum InfoToggle implements IConfigInteger, IEnumBooleanHotkey
 
     // Entity
     ENTITY_REG_NAME         ("infoEntityRegistryName",      InfoLineTypes.ENTITY_REG, false, ""),
-    LOOKING_AT_ENTITY       ("infoLookingAtEntity",         InfoLineTypes.LOOKING_AT_ENTITY, false, ""),
+//    LOOKING_AT_ENTITY       ("infoLookingAtEntity",         InfoLineTypes.LOOKING_AT_ENTITY, false, ""),
     LOOKING_AT_EFFECTS      ("infoLookingAtEffects",        InfoLineTypes.LOOKING_AT_EFFECTS, false, ""),
     LOOKING_AT_PLAYER_EXP   ("infoLookingAtPlayerExp",      InfoLineTypes.LOOKING_AT_PLAYER_EXP, false, ""),
     ZOMBIE_CONVERSION       ("infoZombieConversion",        InfoLineTypes.ZOMBIE_CONVERSION, false, ""),
@@ -103,13 +103,13 @@ public enum InfoToggle implements IConfigInteger, IEnumBooleanHotkey
     HORSE_MAX_HEALTH        ("infoHorseMaxHealth",          InfoLineTypes.HORSE_MAX_HEALTH, false, ""),
     PANDA_GENE              ("infoPandaGene",               InfoLineTypes.PANDA_GENE, false, ""),
     DOLPHIN_TREASURE        ("infoDolphinTreasure",         InfoLineTypes.DOLPHIN_TREASURE, false, ""),
-    ENTITY_VARIANT          ("infoEntityVariant",           InfoLineTypes.ENTITY_VARIANT, false, ""),
+//    ENTITY_VARIANT          ("infoEntityVariant",           InfoLineTypes.ENTITY_VARIANT, false, ""),
     ENTITY_HOME_POS         ("infoEntityHomePos",           InfoLineTypes.HOME_POS, false, ""),
 	ENTITY_COPPER_AGING		("infoEntityCopperAging",       InfoLineTypes.COPPER_AGING, false, ""),
     ;
 
     public static final ImmutableList<@NotNull InfoToggle> VALUES = ImmutableList.copyOf(values());
-    private static final String INFO_KEY = Reference.MOD_ID+".config.info_toggle";
+    private static final String INFO_KEY = Reference.TRANSLATION_KEY_PREFIX + ".config.info_toggle";
 
     private final String name;
     private final InfoLineType<?> type;
@@ -351,7 +351,7 @@ public enum InfoToggle implements IConfigInteger, IEnumBooleanHotkey
 
         if (comment != null && this.serverDataRequired)
         {
-            return comment + "\n" + StringUtils.translate(Reference.MOD_ID + ".label.config_comment.server_side_data");
+            return comment + "\n" + StringUtils.translate(Reference.TRANSLATION_KEY_PREFIX + ".label.config_comment.server_side_data");
         }
 
         return comment;

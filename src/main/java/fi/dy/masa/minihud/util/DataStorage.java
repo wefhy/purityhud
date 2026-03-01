@@ -391,9 +391,9 @@ public class DataStorage
         String[] parts = message.split(" ");
 
         if (parts.length > 0 &&
-                (parts[0].equals("minihud-seed") ||
-                 parts[0].equals("#minihud-seed") ||
-                 parts[0].equals("/minihud-seed")))
+                (parts[0].equals("purityhud-seed") ||
+                 parts[0].equals("#purityhud-seed") ||
+                 parts[0].equals("/purityhud-seed")))
         {
             if (parts.length == 2)
             {
@@ -422,9 +422,9 @@ public class DataStorage
             return true;
         }
         else if (parts.length > 0 &&
-                (parts[0].equals("minihud-spawnchunkradius") ||
-                 parts[0].equals("/minihud-spawnchunkradius") ||
-                 parts[0].equals("#minihud-spawnchunkradius"))
+                (parts[0].equals("purityhud-spawnchunkradius") ||
+                 parts[0].equals("/purityhud-spawnchunkradius") ||
+                 parts[0].equals("#purityhud-spawnchunkradius"))
         )
         {
             if (parts.length == 2)

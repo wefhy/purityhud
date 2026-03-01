@@ -468,7 +468,7 @@ public class RenderHandler implements IRenderer
 
         @SuppressWarnings("deprecation")
         boolean isChunkLoaded = mc.level.hasChunkAt(pos);
-        
+
         SpeedUnits speedUnits = (SpeedUnits) Configs.Generic.SPEED_UNITS.getOptionListValue();
 
         if (isChunkLoaded == false)

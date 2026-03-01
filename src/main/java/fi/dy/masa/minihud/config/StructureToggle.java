@@ -46,7 +46,7 @@ public enum StructureToggle
     private final ConfigColor colorMain;
     private final ConfigColor colorComponents;
     private final IHotkey hotkey;
-    private static final String STRUCTURES_KEY = Reference.MOD_ID+".config.structure_toggle";
+    private static final String STRUCTURES_KEY = Reference.TRANSLATION_KEY_PREFIX + ".config.structure_toggle";
 
     StructureToggle(String name, String defaultHotkey, String colorMain, String colorComponents, String comment, String prettyName)
     {

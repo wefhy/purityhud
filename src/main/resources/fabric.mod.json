@@ -1,10 +1,10 @@
 {
-	"schemaVersion": 1,
-	"id": "minihud",
-	"name": "MiniHUD",
-	"version": "${mod_version}",
+    "schemaVersion": 1,
+    "id": "purityhud",
+    "name": "PurityHUD",
+    "version": "${mod_version}",
 
-	"description": "Configurable \"mini-F3\" info lines, and various overlay renderers",
+	"description": "Configurable \"mini-F3\" info lines, and various overlay renderers. MiniHUD fork for Purity Vanilla server.",
 	"authors": [
 		"masa"
 	],
@@ -30,7 +30,7 @@
 	"mixins": [
 		"mixins.minihud.json"
 	],
-    "accessWidener": "minihud.accesswidener",
+    "accessWidener": "purityhud.accesswidener",
 
 	"depends": {
 		"minecraft": "1.21.11",

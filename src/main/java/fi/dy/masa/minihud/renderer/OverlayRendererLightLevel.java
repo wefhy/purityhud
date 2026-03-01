@@ -46,7 +46,7 @@ import fi.dy.masa.minihud.util.LightLevelRenderCondition;
 public class OverlayRendererLightLevel extends OverlayRendererBase
 {
     public static final OverlayRendererLightLevel INSTANCE = new OverlayRendererLightLevel();
-    private static final Identifier TEXTURE_NUMBERS = Identifier.fromNamespaceAndPath(Reference.MOD_ID, "textures/misc/light_level_numbers.png");
+    private static final Identifier TEXTURE_NUMBERS = Identifier.fromNamespaceAndPath(Reference.TRANSLATION_KEY_PREFIX, "textures/misc/light_level_numbers.png");
 
     private final List<LightLevelInfo> lightInfos;
     private BlockPos.MutableBlockPos mutablePos;
