@@ -1,3 +1,6 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 plugins {
 	id 'fabric-loom' version '1.15-SNAPSHOT'
 	id 'maven-publish'
@@ -73,6 +76,41 @@ processResources {
 
 	filesMatching("fabric.mod.json") {
 		expand "mod_version": project.mod_version
+	}
+
+	// Keep translation keys resilient across fork/upstream prefix drift.
+	// This mutates only build output resources, never source lang files.
+	doLast {
+		String forkPrefix = project.mod_id.toString()
+		String upstreamPrefix = "minihud"
+
+		if (forkPrefix == upstreamPrefix) {
+			return
+		}
+
+		File langDir = destinationDir.toPath().resolve("assets/minihud/lang").toFile()
+		if (!langDir.exists()) {
+			return
+		}
+
+		fileTree(langDir).matching { include "*.json" }.files.each { File langFile ->
+			Map<String, Object> source = (Map<String, Object>) new JsonSlurper().parse(langFile)
+			Map<String, Object> merged = new LinkedHashMap<>(source.size() * 2)
+			merged.putAll(source)
+
+			source.each { String key, Object value ->
+				if (key.startsWith(forkPrefix + ".")) {
+					String alias = upstreamPrefix + "." + key.substring(forkPrefix.length() + 1)
+					merged.putIfAbsent(alias, value)
+				}
+				else if (key.startsWith(upstreamPrefix + ".")) {
+					String alias = forkPrefix + "." + key.substring(upstreamPrefix.length() + 1)
+					merged.putIfAbsent(alias, value)
+				}
+			}
+
+			langFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(merged)) + "\n"
+		}
 	}
 }
 
